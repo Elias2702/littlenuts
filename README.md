@@ -47,3 +47,11 @@
     ```shell
     php artisan migrate
     ```
+
+## Set a navigation link as active with Laravel and Bootstrap
+
+```php
+<li class="nav-item {{ Route::is('register') ? 'active' : '' }}">
+    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+</li>
+```
