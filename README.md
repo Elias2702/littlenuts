@@ -15,9 +15,7 @@
 
 ## Overview
 
-### Database
-
-### Schema
+### Database schema
 
 <p align="center">
     <img src="./public/schema.png" alt="logo">
