@@ -31,7 +31,7 @@
 
 2. Edit the **.env** file like this:
 
-    ```env
+    ```bash
     DB_CONNECTION=sqlite
     # DB_HOST=127.0.0.1
     # DB_PORT=3306
@@ -44,7 +44,7 @@
 
 1. Edit the **.env** file like this:
 
-    ```env
+    ```bash
     APP_NAME=LittleNuts
     ```
 
@@ -54,13 +54,13 @@
 
 1. Run this command in your terminal.
 
-    ```shell
+    ```bash
     php artisan make:auth
     ```
 
 1. Run this command in your terminal.
 
-    ```shell
+    ```bash
     php artisan migrate
     ```
 
