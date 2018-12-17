@@ -1,5 +1,9 @@
 # LittleNuts
 
+<p align="center">
+    <img src="./public/logo.svg" alt="logo" width="350">
+</p>
+
 ## Useful links
 
 - [Instructions](https://github.com/becodeorg/LIE-Hamilton-1.7/tree/master/02-La-colline/02a-VueJS-Laravel)
