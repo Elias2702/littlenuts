@@ -81,14 +81,10 @@ class MovieController extends Controller
     
   }
 
-  public function showMovies($id){
-
-    $movies = App\Movie::all();
+  public function showMovies(){
+    $movie = \App\Movie::all();
 
     return view('movies', [
-        'movies' => $movies,
+        'movies' => $movie,
     ]);
-  
-}
-
-?>
+  }}

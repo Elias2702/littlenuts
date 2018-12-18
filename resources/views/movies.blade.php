@@ -6,7 +6,15 @@
 
 	<ul>
 		@foreach($movies as $movie)
-			<li> {{ $movies->title }} </li>
+			<div class="movieBox">
+				<li> {{ $movie->title }} </li>
+				<li> {{ $movie->synopsis }} </li>
+			</div>
+
+			<figure class="figure">
+  				<img src=".../400x300" class="figure-img img-fluid rounded" alt="A generic square placeholder image with rounded corners in a figure.">
+  				<figcaption class="figure-caption"> {{ $movie->synopsis }} </figcaption>
+				</figure>
 		@endforeach
 	</ul>
 
