@@ -14,3 +14,15 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+Route::resource('movie', 'MovieController');
+Route::resource('actor', 'ActorController');
+Route::resource('list', 'ListController');
+Route::resource('user', 'UserController');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/movies', 'MovieController@showMovies');
