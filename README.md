@@ -62,10 +62,17 @@
 </li>
 ```
 
-
 ### Use dump-autoload before seeding a database
 
 ```bash
 composer dump-autoload
 php artisan db:seed
 ```
+
+### Install prestissimo to make composer 10 times faster
+
+```bash
+composer global require hirak/prestissimo
+```
+
+Could need to be ran as root/sudo.
