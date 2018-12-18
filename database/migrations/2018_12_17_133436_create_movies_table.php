@@ -11,6 +11,7 @@ class CreateMoviesTable extends Migration {
 			$table->increments('id');
 			$table->string('title', 255);
 			$table->text('synopsis')->nullable();
+			$table->string('cover_path', 255)->nullable();
 			$table->string('trailer_url', 255)->nullable();
 			$table->date('release_date')->nullable();
 			$table->timestamps();

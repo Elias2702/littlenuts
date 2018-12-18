@@ -18,6 +18,7 @@ $factory->define(App\Movie::class, function (Faker $faker) {
         'title' => $faker->sentence(2),
         'synopsis' => $faker->sentence(5),
         'release_date' => $faker->date,
+        'cover_path' => 'http://placehold.jp/300x210.png',
         'trailer_url' => '0dtVi8zaBHI'
     ];
 });
