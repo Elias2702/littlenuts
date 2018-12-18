@@ -13,7 +13,7 @@ class Actor extends Model
 
     public function movies()
     {
-        return $this->hasMany('Movie')->withPivot();
+        return $this->hasMany('App\Movie');
     }
 
 }

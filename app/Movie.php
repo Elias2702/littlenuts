@@ -13,7 +13,12 @@ class Movie extends Model
 
     public function actors()
     {
-        return $this->hasMany('Actor')->withPivot();
+        return $this->hasMany('App\Actor');
+    }
+
+    public function users()
+    {
+        return $this->belongsToMany('App\User');
     }
 
 }
