@@ -15,13 +15,13 @@
 
 ## Overview
 
-### Database schema
+### Database schema (in progress)
 
 <p align="center">
     <img src="./public/schema.png" alt="logo">
 </p>
 
-[Schema link](http://www.laravelsd.com/share/afwZmI)
+~~[Schema link](http://www.laravelsd.com/share/afwZmI)~~
 
 ## Cookbook
 
