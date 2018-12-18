@@ -32,4 +32,14 @@ class User extends Authenticatable
     {
         return $this->belongsToMany('App\Movie');
     }
+
+    public function starredMovies()
+    {
+        return $this->belongsToMany('App\Movie')->wherePivot('is_starred', true);
+    }
+
+    public function watchedMovies()
+    {
+        return $this->belongsToMany('App\Movie')->wherePivot('is_watched', true);
+    }
 }

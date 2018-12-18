@@ -11,7 +11,7 @@ class CreateMovieUserTable extends Migration {
 			$table->integer('movie_id')->unsigned()->index();
 			$table->integer('user_id')->unsigned()->index();
 			$table->boolean('is_watched')->default(false);
-			$table->boolean('is_favorited')->default(false);
+			$table->boolean('is_starred')->default(false);
 			$table->primary(['movie_id', 'user_id']);
 			$table->timestamps();
 		});
