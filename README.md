@@ -13,16 +13,6 @@
 - [Vue (2.x) cookbook](https://vuejs.org/v2/cookbook/)
 - [Vue (2.x) guide](https://vuejs.org/v2/guide/)
 
-## Overview
-
-### Database schema (in progress)
-
-<p align="center">
-    <img src="./public/schema.png" alt="logo">
-</p>
-
-~~[Schema link](http://www.laravelsd.com/share/afwZmI)~~
-
 ## Cookbook
 
 ### Use sqlite as database system
