@@ -12,13 +12,15 @@
 			</div>
 
 			<figure class="figure">
-  				<img src=".../400x300" class="figure-img img-fluid rounded" alt="A generic square placeholder image with rounded corners in a figure.">
+  				<img src="{{ $movie->picture_url }}" class="figure-img img-fluid rounded" alt="Movie Poster">
   				<figcaption class="figure-caption"> {{ $movie->synopsis }} </figcaption>
-				</figure>
+			</figure>
 		@endforeach
 	</ul>
 
-	
+@endsection
+
+
 {{-- {!! Form::open(array('route' => 'route.name', 'method' => 'POST')) !!}
 	<ul>
 		<li>
@@ -42,5 +44,3 @@
 		</li>
 	</ul>
 {!! Form::close() !!} --}} 
-
-@endsection
