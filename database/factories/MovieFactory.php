@@ -15,10 +15,10 @@ use Faker\Generator as Faker;
 
 $factory->define(App\Movie::class, function (Faker $faker) {
     return [
-        'title' => $faker->sentence(2),
+        'title' => $faker->company,
         'synopsis' => $faker->sentence(5),
         'release_date' => $faker->date,
-        'cover_path' => 'http://placehold.jp/300x210.png',
+        'cover_path' => 'http://placehold.jp/210x300.png',
         'trailer_url' => '0dtVi8zaBHI'
     ];
 });

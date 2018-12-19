@@ -11,13 +11,13 @@ class ActorsTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(\App\Actor::class, 20)->create()->each(function ($u) {
+        factory(\App\Actor::class, 100)->create()->each(function ($u) {
             $u->movies()->attach(
                 \App\Movie::all()->random()->id
             );
         });
 
-        factory(\App\Movie::class, 20)->create()->each(function ($m) {
+        factory(\App\Movie::class, 100)->create()->each(function ($m) {
             $m->actors()->attach(
                 \App\Actor::all()->random()->id
             );

@@ -11,6 +11,11 @@
 |
 */
 
-Auth::routes();
+// Guest routes
+Route::get('/', 'PublicController@index')->name('index');
+Route::get('/actors', 'PublicController@actors')->name('actors');
+Route::get('/movies', 'PublicController@movies')->name('movies');
 
+// Auth routes
+Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');

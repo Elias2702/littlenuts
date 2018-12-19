@@ -19,7 +19,7 @@
 
 1. Create the **database/database.sqlite** file.
 
-2. Edit the **.env** file like this:
+1. Edit the **.env** file like this:
 
     ```bash
     DB_CONNECTION=sqlite
