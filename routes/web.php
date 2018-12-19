@@ -18,4 +18,4 @@ Route::get('/movies', 'PublicController@movies')->name('movies');
 
 // Auth routes
 Auth::routes();
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home/{action?}', 'HomeController@index')->name('home');

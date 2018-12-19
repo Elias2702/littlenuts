@@ -22,9 +22,18 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($action = null)
     {
-        $movies = Auth::user()->movies()->get();
+        if ($action == null) {
+            $movies = Auth::user()->movies()->get();
+        } elseif ($action == 'starred') {
+            $movies = Auth::user()->starredMovies()->get();
+        } elseif ($action == 'watched') {
+            $movies = Auth::user()->watchedMovies()->get();
+        } else {
+            abort(404);
+        }
+
         return view('home', compact('movies'));
     }
 }
