@@ -1,21 +1,20 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
-// Guest routes
+// GUEST -------------------------------------------------------------------- //
 Route::get('/', 'PublicController@index')->name('index');
-Route::get('/actors', 'PublicController@actors')->name('actors');
-Route::get('/movies', 'PublicController@movies')->name('movies');
 
-// Auth routes
+// Actors
+Route::get('/actors', 'PublicController@actors')->name('actors.all');
+Route::get('/actors/{id}', 'PublicController@actor')->name('actors.one');
+
+// Movies
+Route::get('/movies', 'PublicController@movies')->name('movies.all');
+Route::get('/movies/{id}', 'PublicController@movie')->name('movies.one');
+
+// AUTH --------------------------------------------------------------------- //
+
+// Authentication
 Auth::routes();
+
+// Dashboard
 Route::get('/home/{action?}', 'HomeController@index')->name('home');

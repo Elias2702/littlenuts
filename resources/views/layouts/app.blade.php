@@ -36,10 +36,10 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
-                            <a class="nav-link {{ Route::is('movies') ? 'active' : '' }}" href="{{ route('movies') }}">{{ __('Movies') }}</a>
+                            <a class="nav-link {{ Route::is('movies.all') ? 'active' : '' }}" href="{{ route('movies.all') }}">{{ __('Movies') }}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link {{ Route::is('actors') ? 'active' : '' }}" href="{{ route('actors') }}">{{ __('Actors') }}</a>
+                            <a class="nav-link {{ Route::is('actors.all') ? 'active' : '' }}" href="{{ route('actors.all') }}">{{ __('Actors') }}</a>
                         </li>
                     </ul>
 
