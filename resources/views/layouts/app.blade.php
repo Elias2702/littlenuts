@@ -24,7 +24,6 @@
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-
                     <img src="{{ asset('logo.svg') }}" width="35" height="35" alt="logo">
                     {{ config('app.name', 'Laravel') }}
                 </a>
@@ -43,19 +42,11 @@
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
-<<<<<<< HEAD
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                             </li>
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-=======
-                                <a class="nav-link {{ Route::is('login') ? 'active' : '' }}" href="{{ route('login') }}">{{ __('Login') }}</a>
-                            </li>
-                            @if (Route::has('register'))
-                                <li class="nav-item">
                                     <a class="nav-link {{ Route::is('register') ? 'active' : '' }}" href="{{ route('register') }}">{{ __('Register') }}</a>
->>>>>>> dev_commun
                                 </li>
                             @endif
                         @else
