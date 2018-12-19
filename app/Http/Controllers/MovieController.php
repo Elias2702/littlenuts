@@ -84,7 +84,5 @@ class MovieController extends Controller
   public function showMovies(){
     $movie = \App\Movie::all();
 
-    return view('movies', [
-        'movies' => $movie,
-    ]);
+    return view('movies')->withMovies($movie);
   }}
