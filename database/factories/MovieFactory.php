@@ -13,12 +13,11 @@ use Faker\Generator as Faker;
 |
 */
 
-$factory->define(App\User::class, function (Faker $faker) {
+$factory->define(App\Movie::class, function (Faker $faker) {
     return [
-        'name' => $faker->name,
-        'email' => $faker->unique()->safeEmail,
-        'email_verified_at' => now(),
-        'password' => bcrypt('111111'),
-        'remember_token' => str_random(10),
+        'title' => $faker->sentence(2),
+        'synopsis' => $faker->sentence(5),
+        'release_date' => $faker->date,
+        'trailer_url' => '0dtVi8zaBHI'
     ];
 });

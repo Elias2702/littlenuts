@@ -1,42 +1,63 @@
-# LITTLENUTS
+# LittleNuts
 
-> Netflix-like project with Laravel & VueJS
- 
-* * *
+<p align="center">
+    <img src="./public/logo.svg" alt="logo" width="350">
+</p>
 
-Le but de ce projet est de réaliser un *netflix-like*, aux fonctionnalités un peu plus basiques, pour découvrir le framework Laravel (PHP, backend) et VueJS (JavaScript, frontend).
+## Useful links
 
-## Laravel : backend
+- [Instructions](https://github.com/becodeorg/LIE-Hamilton-1.7/tree/master/02-La-colline/02a-VueJS-Laravel)
+- [Laravel (master) documentation](https://laravel.com/docs/master)
+- [Laravel schema designer](https://laravelsd.com/)
+- [Vue (2.x) api](https://vuejs.org/v2/api/)
+- [Vue (2.x) cookbook](https://vuejs.org/v2/cookbook/)
+- [Vue (2.x) guide](https://vuejs.org/v2/guide/)
 
-Grâce à la puissance de Laravel, vous allez gérer les inscriptions et les connexions.
+## Cookbook
 
-Vous aurez plusieurs types d'entités : `Account`, `User`, `Film`, `List`.
+### Use sqlite as database system
 
-Chaque compte (`Account`) peut avoir 3 utilisateurs (`User`) maximum.
+1. Create the **database/database.sqlite** file.
 
-Chaque film peut-être ajouté dans une liste propre à un utilisateur ; il existe trois listes : 
+2. Edit the **.env** file like this:
 
-- À regarder plus tard
-- Favoris
-- Déjà vu   
+    ```bash
+    DB_CONNECTION=sqlite
+    # DB_HOST=127.0.0.1
+    # DB_PORT=3306
+    # DB_DATABASE=homestead
+    # DB_USERNAME=homestead
+    # DB_PASSWORD=secret
+    ```
 
-Le téléchargement est illegal mais il vous faudra alors remplacer la série ou le film par son trailer YouTube.
+### Change the application name
 
-## VueJS : frontend
+1. Edit the **.env** file like this:
 
-Pour la partie frontend vous devrez gérer les données envoyées par Laravel et les afficher grace au fonctionnalités de VueJS.
+    ```bash
+    APP_NAME=LittleNuts
+    ```
 
-Votre interface doit gérer la manipulation de chaque type de données.
+1. Restart your server.
 
-De plus, vos visiteurs doivent pouvoir faire une recherche dans les films sur les critères suivants :
+### Create a basic authentification system
 
-- les acteurs
-- le résumé
-- le titre
-- date de sortie
+1. Run this command in your terminal.
 
-Lors de l'affichage des détails d'un film/série, vous devrez afficher le poster du film, son résumé, les acteurs, le titre, et le trailer Youtube de celui ci.
+    ```bash
+    php artisan make:auth
+    ```
 
-## Ressources
+1. Run this command in your terminal.
 
-Vous trouverez des mockups et un fichier de configuration de **docker-compose** dans le dossier.
+    ```bash
+    php artisan migrate
+    ```
+
+### Set a navigation link as active with Laravel and Bootstrap
+
+```php
+<li class="nav-item {{ Route::is('register') ? 'active' : '' }}">
+    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+</li>
+```
