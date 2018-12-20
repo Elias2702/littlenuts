@@ -91,8 +91,8 @@ class MovieController extends Controller
 
   public function showMovie($id){
     $movieId = \App\Movie::find($id);
-
-    return view('movie', compact($movieId));
+    
+    return view('moviecard', compact('movieId'));
   }
 
   public function searchMovies(){

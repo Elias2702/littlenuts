@@ -77,7 +77,7 @@
 
                 <h5 class="card-title" style="text-align: center;"> {{ $movie->title }} </h5>
                 <p class="card-text" style="text-align: center;"> {{ $movie->synopsis }} </p>
-                <a class="btn btn-primary {{ Route::is('movie') ? 'active' : '' }}" href="{{ route('show_movie', $movie->id) }}" style="margin:2%;">See more</a>
+                <a class="btn btn-primary {{ Route::is('moviecard') ? 'active' : '' }}" href="{{ route('show_movie', $movie->id) }}" style="margin:2%;">See more</a>
                 <a href="#" class="btn btn-primary">Watch now</a><br /><br />
 
                 <a href="#" class="btn btn-default" style="margin:2%;">Favorite</a>
