@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use function App\movie;
+use Illuminate\Support\Facades\Input;
 
 class MovieController extends Controller 
 {
@@ -85,4 +87,20 @@ class MovieController extends Controller
     $movie = \App\Movie::all();
 
     return view('movies')->withMovies($movie);
-  }}
+  }
+
+  public function showMovie($id){
+    $movieId = \App\Movie::find($id);
+
+    return view('movie', compact($movieId));
+  }
+
+  public function searchMovies(){
+    $q = Input::get('q');
+    $movies = MovieController::where('title', '%' . $q . '%')->orWhere('id', 'LIKE', '%' . $q . '%')->get();
+    if(count($movies) > 0)
+        return view('movies')->withDetails($movies)->withQuery($q);
+        else return view('movies')->withMessage('No movies found, try with other keywords');
+  }
+
+}

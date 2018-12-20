@@ -25,4 +25,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/movies', 'MovieController@showMovies');
+Route::get('/movies', 'MovieController@showMovies')->name('show_movies');
+
+Route::get('/movie/{id}', 'MovieController@showMovie')->name('show_movie');
+
+Route::any('search', 'MovieController@searchMovies')->name('search_movies');
