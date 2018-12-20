@@ -8,37 +8,33 @@
         <fieldset id="EditProfile">
             <legend>Edit your great profile</legend>
 
-            <form action="/member" method="post" class="form-horizontal">
+            <form action="/settings" method="POST" class="form-horizontal" class="dropdown-menu p-4">
+              @csrf
+              {{ method_field('PATCH') }}
                 <div class="form-group">
                     <label class="col-md-3 control-label" for="textinput">First name</label>
                     <div class="col-md-3">
-                        <input id="textinput" name="textinput" type="text" placeholder="{{ $user->first()->name }}" class="form-control input-md">
-                        <button name="submitform" class="btn btn-success">Update</button>
+                    <input id="textinput" name="textinput" type="text" placeholder="{{ $user->firstname }}" class="form-control input-md">
+                    <button name="submitform" class="btn btn-success">Update</button>
                     </div>
                 </div>
             </form>
 
-            <form action="/member" method="post" class="form-horizontal">
+            <form action="/settings" method="POST" class="form-horizontal">
+              @csrf
+              {{ method_field('PATCH') }}
                 <div class="form-group">
                     <label class="col-md-3 control-label" for="textinput">Last name</label>
                     <div class="col-md-3">
-                        <input id="textinput" name="textinput" type="text" placeholder="{{ $user->first()->name }}" class="form-control input-md">
+                        <input id="textinput" name="textinput" type="text" placeholder="{{ $user->lastname }}" class="form-control input-md">
                         <button name="submitform" class="btn btn-success">Update</button>
                     </div>
                 </div>
             </form>
 
-            <form action="/member" method="post" class="form-horizontal">
-                <div class="form-group">
-                    <label class="col-md-3 control-label" for="email">E-mail</label>
-                    <div class="col-md-3">
-                        <input id="email" name="email" type="text" placeholder="{{ $user->first()->email }}" class="form-control input-md">
-                        <button name="submitform" class="btn btn-success">Update</button>
-                    </div>
-                </div>
-            </form>
-
-            <form action="/member" method="post" class="form-horizontal">
+            <form action="/settings" method="POST" class="form-horizontal">
+              @csrf
+              {{ method_field('PATCH') }}
                 <div class="form-group">
                 <label class="col-md-3 control-label" for="selectbasic">Gender</label>
                     <div class="col-md-3">
@@ -52,7 +48,33 @@
                 </div>
             </form>
 
-            <form action="/member" method="post" class="form-horizontal">
+            <form action="/settings" method="POST" class="form-horizontal" class="dropdown-menu p-4">
+              @csrf
+              {{ method_field('PATCH') }}
+                <div class="form-group">
+                    <label class="col-md-3 control-label" for="textinput">Birthday</label>
+                    <div class="col-md-3">
+                    <input id="dateinput" name="dateinput" type="date" class="form-control input-md">
+                    <button name="submitform" class="btn btn-success">Update</button>
+                    </div>
+                </div>
+            </form>
+
+            <form action="/settings" method="POST" class="form-horizontal">
+              @csrf
+              {{ method_field('PATCH') }}
+                <div class="form-group">
+                    <label class="col-md-3 control-label" for="email">Email</label>
+                    <div class="col-md-3">
+                        <input id="email" name="email" type="text" placeholder="{{ $user->email }}" class="form-control input-md">
+                        <button name="submitform" class="btn btn-success">Update</button>
+                    </div>
+                </div>
+            </form>
+
+            <form action="/settings" method="POST" class="form-horizontal">
+              @csrf
+              {{ method_field('PATCH') }}
                 <div class="form-group">
                     <label class="col-md-3 control-label" for="selectage">Age related content</label>
                     <div class="col-md-3">
@@ -62,11 +84,13 @@
                 </div>
             </form>
 
-            <form action="/member" method="post" class="form-horizontal">
+            <form action="/settings" method="POST" class="form-horizontal">
+              @csrf
+              {{ method_field('PATCH') }}
                 <div class="form-group">
-                    <label class="col-md-3 control-label" for="photo">Upload your profile's picture</label>
-                    <div class="col-md-3">
-                        <input id="photo" name="photo" class="input-file" type="file">
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="customFile">
+                        <label class="custom-file-label" for="customFile">Update your profile picture</label>
                         <button name="submitform" class="btn btn-success">Update</button>
                     </div>
                 </div>
