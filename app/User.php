@@ -28,6 +28,22 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    public function addToWatchList($movie_id)
+    {
+        return $this->belongsToMany('App\Movie')
+                    ->attach($movie_id);
+    }
+
+    public function addToWatchedList($movie_id)
+    {
+        
+    }
+
+    public function addToStarredList($movie_id)
+    {
+        
+    }
+
     public function hasInWatchList($movie_id)
     {
         return $this->belongsToMany('App\Movie')
