@@ -10,7 +10,9 @@ class PublicController extends Controller
 {
     public function index()
     {
-        return view('index');
+        $movies = Movie::orderBy('id', 'desc')->take(3)->get();
+        $actors = Actor::orderBy('id', 'desc')->take(3)->get();
+        return view('index', compact('movies', 'actors'));
     }
 
     public function actors()

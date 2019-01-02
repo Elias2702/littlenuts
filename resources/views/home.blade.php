@@ -27,6 +27,12 @@
                 <div class="card-body">
                     @include('partials.movies')
                 </div>
+
+                <div class="d-flex mt-2">
+                    <div class="mx-auto">
+                        {{ $movies->links() }}
+                    </div>
+                </div>
             </div>
         </div>
     </div>

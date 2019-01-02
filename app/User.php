@@ -28,6 +28,29 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    public function hasInWatchList($movie_id)
+    {
+        return $this->belongsToMany('App\Movie')
+                    ->wherePivot('movie_id', $movie_id)
+                    ->exists();
+    }
+
+    public function hasInWatchedList($movie_id)
+    {
+        return $this->belongsToMany('App\Movie')
+                    ->wherePivot('movie_id', $movie_id)
+                    ->wherePivot('is_watched', true)
+                    ->exists();
+    }
+
+    public function hasInStarredList($movie_id)
+    {
+        return $this->belongsToMany('App\Movie')
+                    ->wherePivot('movie_id', $movie_id)
+                    ->wherePivot('is_starred', true)
+                    ->exists();
+    }
+
     public function movies()
     {
         return $this->belongsToMany('App\Movie');
@@ -42,4 +65,6 @@ class User extends Authenticatable
     {
         return $this->belongsToMany('App\Movie')->wherePivot('is_watched', true);
     }
+
+
 }

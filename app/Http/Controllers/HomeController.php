@@ -25,11 +25,11 @@ class HomeController extends Controller
     public function index($action = null)
     {
         if ($action == null) {
-            $movies = Auth::user()->movies()->get();
+            $movies = Auth::user()->movies()->paginate(24);
         } elseif ($action == 'starred') {
-            $movies = Auth::user()->starredMovies()->get();
+            $movies = Auth::user()->starredMovies()->paginate(24);
         } elseif ($action == 'watched') {
-            $movies = Auth::user()->watchedMovies()->get();
+            $movies = Auth::user()->watchedMovies()->paginate(24);
         } else {
             abort(404);
         }

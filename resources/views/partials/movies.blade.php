@@ -7,9 +7,15 @@
                 </a>
                 @auth
                     <div class="mb-3">
-                        <button type="button" class="btn btn-sm btn-danger m-1">Add/Remove</button>
-                        <button type="button" class="btn btn-sm btn-success m-1">Watch/Unwatch</button>
-                        <button type="button" class="btn btn-sm btn-warning m-1 active">Star/Unstar</button>
+                        <button type="button" class="btn btn-sm btn-danger m-1">
+                            {{ Auth::user()->hasInWatchList($movie->id) ? 'Remove' : 'Add' }}
+                        </button>
+                        <button type="button" class="btn btn-sm btn-success m-1">
+                            {{ Auth::user()->hasInWatchedList($movie->id) ? 'Unwatch' : 'Watch' }}
+                        </button>
+                        <button type="button" class="btn btn-sm btn-warning m-1 active">
+                            {{ Auth::user()->hasInStarredList($movie->id) ? 'Unstar' : 'Star' }}
+                        </button>
                     </div>
                 @endauth
                 <h5 class="card-title" style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">

@@ -1,6 +1,8 @@
 <?php
 
 // GUEST -------------------------------------------------------------------- //
+
+// Homepage
 Route::get('/', 'PublicController@index')->name('index');
 
 // Actors
