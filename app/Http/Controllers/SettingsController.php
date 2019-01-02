@@ -19,7 +19,7 @@ class SettingsController extends Controller {
 
     public function edit(Request $request) {
         $user = Auth::user();
-        $user->date = $request->input('dateinput');
+        $user->birthday = $request->input('dateinput');
         $user->save();
     }
 }
