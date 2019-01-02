@@ -20,3 +20,7 @@ Auth::routes();
 
 // Dashboard
 Route::get('/home/{action?}', 'HomeController@index')->name('home');
+
+// Others
+Route::get('/user_settings', 'SettingsController@settings');
+Route::patch('/settings', 'SettingsController@edit'); 
