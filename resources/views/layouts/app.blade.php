@@ -18,7 +18,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
 </head>
 <body>
     <div id="app">
@@ -34,7 +34,12 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-
+                        <li class="nav-item">
+                            <a class="nav-link {{ Route::is('movies.all') ? 'active' : '' }}" href="{{ route('movies.all') }}">{{ __('Movies') }}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {{ Route::is('actors.all') ? 'active' : '' }}" href="{{ route('actors.all') }}">{{ __('Actors') }}</a>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -56,9 +61,13 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+<<<<<<< HEAD
                                     <a class="dropdown-item" href="/user_settings">
                                         Settings
                                     </a>
+=======
+                                    <a class="dropdown-item {{ Route::is('home') ? 'active' : '' }}" href="{{ route('home') }}">{{ __('Dashboard') }}</a>
+>>>>>>> 1b57e3981effeb135c02990c62d41a4eb830968a
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

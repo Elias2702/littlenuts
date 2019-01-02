@@ -11,7 +11,7 @@ class CreateActorsTable extends Migration {
 			$table->increments('id');
 			$table->string('first_name', 255);
 			$table->string('last_name', 255);
-			$table->string('picture_url', 255)->nullable();
+			$table->string('picture_path', 255)->nullable();
 			$table->timestamps();
 		});
 	}
