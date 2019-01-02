@@ -61,13 +61,8 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-<<<<<<< HEAD
-                                    <a class="dropdown-item" href="/user_settings">
-                                        Settings
-                                    </a>
-=======
                                     <a class="dropdown-item {{ Route::is('home') ? 'active' : '' }}" href="{{ route('home') }}">{{ __('Dashboard') }}</a>
->>>>>>> 1b57e3981effeb135c02990c62d41a4eb830968a
+                                    <a class="dropdown-item" href="/user_settings">Settings</a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
