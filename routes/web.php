@@ -23,3 +23,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+/* AJOUT BENEDICTE */
+//Route::get('/actors', 'ActorsList')->name('actors');
