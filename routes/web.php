@@ -54,6 +54,11 @@ Route::patch('/settings', 'SettingsController@edit'); // Editer son profil
 
 Route::get('/movies', 'MovieController@showMovies')->name('show_movies'); // Afficher la liste de film au complet
 
+Route::get('/home', 'HomeController@index')->name('home');
+
 Route::get('/moviecard/{id}', 'MovieController@showMovie')->name('show_movie'); // Afficher un film en particulier
 
 Route::any('search', 'MovieController@searchMovies')->name('search_movies'); // Fonction de recherche de film
+
+/* AJOUT BENEDICTE */
+//Route::get('/actors', 'ActorsList')->name('actors');
