@@ -20,3 +20,31 @@ Auth::routes();
 
 // Dashboard
 Route::get('/home/{action?}', 'HomeController@index')->name('home');
+
+// Add to lists
+Route::post(
+    '/add-to-watch-list',
+    'HomeController@addToWatchList'
+)->name('add-to-watch-list');
+Route::post(
+    '/remove-from-watch-list',
+    'HomeController@removeFromWatchList'
+)->name('remove-from-watch-list');
+
+Route::post(
+    '/add-to-watched-list',
+    'HomeController@addToWatchedList'
+)->name('add-to-watched-list');
+Route::post(
+    '/remove-from-watched-list',
+    'HomeController@removeFromWatchedList'
+)->name('remove-from-watched-list');
+
+Route::post(
+    '/add-to-starred-list',
+    'HomeController@addToStarredList'
+)->name('add-to-starred-list');
+Route::post(
+    '/remove-from-starred-list',
+    'HomeController@removeFromStarredList'
+)->name('remove-from-starred-list');
