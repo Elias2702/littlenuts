@@ -4,66 +4,7 @@
 <div class="container">
     <h1>Movies</h1>
 
-    <div class="search_bar">
-        <form action="/search" class="form-horizontal" method="POST" role="search">
-            {{ csrf_field() }}
-            <fieldset>
-                <!-- Search input-->
-                <div class="form-group">
-
-                    <label class="col-md-4 control-label" for="searchinput"></label>
-
-                    <div class="col-md-4">
-
-                        <input id="searchinput" name="searchinput" type="search" placeholder="" class="form-control input-md"
-                            required="">
-                        <!-- Help box -->
-                        <p class="help-block">Search by title, genre, date of release and actors</p>
-
-                    </div>
-
-                </div>
-
-                <!-- Button -->
-                <div class="form-group">
-
-                    <label class="col-md-4 control-label" for=""></label>
-
-                    <div class="col-md-4">
-
-                        <button id="" name="" class="btn btn-success">Search</button>
-
-                    </div>
-                </div>
-
-            </fieldset>
-        </form>
-    </div>
-
-    <div class="search_container">
-        @if(isset($details))
-    <p>The search results for you Query <b> {{ $query }} </b> are : </p>
-        <h2> Sample movies details </h2>
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>Poster</th>
-                    <th>Title</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach ($details as $movies)
-                    <tr>
-                        <td> {{ $movies->picture_url }} </td>
-                        <td> {{ $movies->title }} </td>
-                    </tr>
-                @endforeach
-            </tbody>
-        </table>
-            
-        @endif
-    </div>
+    
 
     <div class="movies_container" style="display: flex; flex-wrap:wrap;">
 
@@ -90,21 +31,3 @@
     </div>
 </div>
 @endsection
-
-
-{{--
-
-@foreach($actors as $actor)
-    <div class="row">
-        <div class="ActorBox col-lg-3 centered">
-            <ul class="list-unstyled">
-                <li>
-                    <a class="{{ Route::is('actors') ? 'active' : '' }}" href="{{ route('show_actor', $actor->id) }}">{{ $actor->first_name }} {{ $actor->last_name }}</a> 
-                </li>
-            </ul>
-        </div>
-    </div>
-    <!-- Trouver comment afficher les éléments l'un à coté de l'autre sur la grille (par 4)-->
-@endforeach
-    
---}}

@@ -20,6 +20,7 @@ Route::resource('movie', 'MovieController');
 Route::resource('actor', 'ActorController');
 Route::resource('list', 'ListController');
 Route::resource('user', 'UserController');
+Route::resource('search', 'SearchController');
 
 Auth::routes();
 
@@ -33,4 +34,4 @@ Route::get('/movies', 'MovieController@showMovies')->name('show_movies'); // Aff
 
 Route::get('/moviecard/{id}', 'MovieController@showMovie')->name('show_movie'); // Afficher un film en particulier
 
-Route::any('search', 'MovieController@searchMovies')->name('search_movies'); // Fonction de recherche de film
+Route::any('/search', 'SearchController@searchMovie')->name('search_movies'); // Fonction de recherche de film

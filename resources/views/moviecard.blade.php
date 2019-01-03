@@ -14,6 +14,14 @@
             <div class="releaseDate">
                 <p> {{ $movieId->release_date}} </p>
             </div>
+
+            <div class="movieSyn">
+                <p> {{ $movieId->synopsis }} </p>
+            </div>
+
+            <div class="movieTrailer">
+                <p> {{ $movieId->trailer_url }} </p>
+            </div>
         </div>
 
     </div>

@@ -95,12 +95,4 @@ class MovieController extends Controller
     return view('moviecard', compact('movieId'));
   }
 
-  public function searchMovies(){
-    $q = Input::get('q');
-    $movies = MovieController::where('title', '%' . $q . '%')->orWhere('id', 'LIKE', '%' . $q . '%')->get();
-    if(count($movies) > 0)
-        return view('movies')->withDetails($movies)->withQuery($q);
-        else return view('movies')->withMessage('No movies found, try with other keywords');
-  }
-
 }
