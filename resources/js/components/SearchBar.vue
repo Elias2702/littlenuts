@@ -10,7 +10,7 @@
             <div class="row">
                 <div v-for="movie in movies" v-bind:key="movie.id">
                     <div>
-                        <img :src="movie.picture_url" >
+                        <img :src="movie.picture_url" :alt="movie.id">
                         <div>
                             <h5 class="card-title" style="text-align: center;"> {{ movie.title }} </h5>
                             <p class="card-text" style="text-align: center;"> {{ movie.synopsis }} </p>
@@ -63,7 +63,7 @@ export default {
                 this.movies = res;
                 this.search = '';
                 this.showsearch = true;
-                console.log(searchMovie());
+                console.log(searchMovie)
             })
         
             .catch(err => {

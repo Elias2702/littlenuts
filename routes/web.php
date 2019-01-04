@@ -1,6 +1,5 @@
 <?php
 
-<<<<<<< HEAD
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -22,9 +21,7 @@ Route::resource('actor', 'ActorController');
 Route::resource('list', 'ListController');
 Route::resource('user', 'UserController');
 Route::resource('search', 'SearchController');
-=======
 // GUEST -------------------------------------------------------------------- //
->>>>>>> origin/dev_commun
 
 // Homepage
 Route::get('/', 'PublicController@index')->name('index');
@@ -39,9 +36,7 @@ Route::get('/movies/{id}', 'PublicController@movie')->name('movies.one');
 
 // AUTH --------------------------------------------------------------------- //
 
-<<<<<<< HEAD
 Route::get('/moviecard/{id}', 'MovieController@showMovie')->name('show_movie'); // Afficher un film en particulier
-=======
 // Authentication
 Auth::routes();
 
@@ -79,4 +74,3 @@ Route::post(
     '/remove-from-starred-list',
     'HomeController@removeFromStarredList'
 )->name('remove-from-starred-list');
->>>>>>> origin/dev_commun

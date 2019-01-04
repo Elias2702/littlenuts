@@ -1867,7 +1867,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         _this.movies = res;
         _this.search = '';
         _this.showsearch = true;
-        console.log(searchMovie());
+        console.log(searchMovie);
       }).catch(function (err) {
         console.log(err);
       });
@@ -36821,7 +36821,9 @@ var render = function() {
             _vm._l(_vm.movies, function(movie) {
               return _c("div", { key: movie.id }, [
                 _c("div", [
-                  _c("img", { attrs: { src: movie.picture_url } }),
+                  _c("img", {
+                    attrs: { src: movie.picture_url, alt: movie.id }
+                  }),
                   _vm._v(" "),
                   _c("div", [
                     _c(

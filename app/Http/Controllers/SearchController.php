@@ -12,7 +12,7 @@ class SearchController extends Controller {
 
         $search = $request->get('q');
 
-        return Movie::where('title', 'release_date', '%'.$search.'%')->get();
+        return Movie::search($search)->get();
 
     }
 }
