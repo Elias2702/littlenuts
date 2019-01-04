@@ -19,7 +19,7 @@
 
 1. Create the **database/database.sqlite** file.
 
-2. Edit the **.env** file like this:
+1. Edit the **.env** file like this:
 
     ```bash
     DB_CONNECTION=sqlite
@@ -56,8 +56,23 @@
 
 ### Set a navigation link as active with Laravel and Bootstrap
 
-```php
+```html
 <li class="nav-item {{ Route::is('register') ? 'active' : '' }}">
     <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
 </li>
 ```
+
+### Use dump-autoload before seeding a database
+
+```bash
+composer dump-autoload
+php artisan db:seed
+```
+
+### Install prestissimo to make composer 10 times faster
+
+```bash
+composer global require hirak/prestissimo
+```
+
+Could need to be ran as root/sudo.
