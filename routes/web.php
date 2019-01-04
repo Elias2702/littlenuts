@@ -1,5 +1,6 @@
 <?php
 
+<<<<<<< HEAD
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,15 +22,61 @@ Route::resource('actor', 'ActorController');
 Route::resource('list', 'ListController');
 Route::resource('user', 'UserController');
 Route::resource('search', 'SearchController');
+=======
+// GUEST -------------------------------------------------------------------- //
+>>>>>>> origin/dev_commun
 
+// Homepage
+Route::get('/', 'PublicController@index')->name('index');
+
+// Actors
+Route::get('/actors', 'PublicController@actors')->name('actors.all');
+Route::get('/actors/{id}', 'PublicController@actor')->name('actors.one');
+
+// Movies
+Route::get('/movies', 'PublicController@movies')->name('movies.all');
+Route::get('/movies/{id}', 'PublicController@movie')->name('movies.one');
+
+// AUTH --------------------------------------------------------------------- //
+
+<<<<<<< HEAD
+Route::get('/moviecard/{id}', 'MovieController@showMovie')->name('show_movie'); // Afficher un film en particulier
+=======
+// Authentication
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Dashboard
+Route::get('/home/{action?}', 'HomeController@index')->name('home');
 
-Route::get('/user_settings', 'SettingsController@settings'); // Afficher la vue profil
+// Others
+Route::get('/user_settings', 'SettingsController@settings');
+Route::patch('/settings', 'SettingsController@edit'); 
 
-Route::patch('/settings', 'SettingsController@edit'); // Editer son profil
+// Add to lists
+Route::post(
+    '/add-to-watch-list',
+    'HomeController@addToWatchList'
+)->name('add-to-watch-list');
+Route::post(
+    '/remove-from-watch-list',
+    'HomeController@removeFromWatchList'
+)->name('remove-from-watch-list');
 
-Route::get('/movies', 'MovieController@showMovies')->name('show_movies'); // Afficher la liste de film au complet
+Route::post(
+    '/add-to-watched-list',
+    'HomeController@addToWatchedList'
+)->name('add-to-watched-list');
+Route::post(
+    '/remove-from-watched-list',
+    'HomeController@removeFromWatchedList'
+)->name('remove-from-watched-list');
 
-Route::get('/moviecard/{id}', 'MovieController@showMovie')->name('show_movie'); // Afficher un film en particulier
+Route::post(
+    '/add-to-starred-list',
+    'HomeController@addToStarredList'
+)->name('add-to-starred-list');
+Route::post(
+    '/remove-from-starred-list',
+    'HomeController@removeFromStarredList'
+)->name('remove-from-starred-list');
+>>>>>>> origin/dev_commun

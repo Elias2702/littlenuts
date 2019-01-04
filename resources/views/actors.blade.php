@@ -1,19 +1,12 @@
-{!! Form::open(array('route' => 'route.name', 'method' => 'POST')) !!}
-	<ul>
-		<li>
-			{!! Form::label('first_name', 'First_name:') !!}
-			{!! Form::text('first_name') !!}
-		</li>
-		<li>
-			{!! Form::label('last_name', 'Last_name:') !!}
-			{!! Form::text('last_name') !!}
-		</li>
-		<li>
-			{!! Form::label('picture_url', 'Picture_url:') !!}
-			{!! Form::text('picture_url') !!}
-		</li>
-		<li>
-			{!! Form::submit() !!}
-		</li>
-	</ul>
-{!! Form::close() !!}
+@extends('layouts.app')
+
+@section('content')
+<div class="container">
+        @include('partials.actors')
+        <div class="d-flex mt-2">
+            <div class="mx-auto">
+                {{ $actors->links() }}
+            </div>
+        </div>
+    </div>
+@endsection
