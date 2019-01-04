@@ -66,7 +66,7 @@ class User extends Authenticatable
     public function addToWatchedList($movie_id)
     {
         if (!$this->isPresent($movie_id)) {
-            return $this->movies()->attach($movie_id);
+            $this->movies()->attach($movie_id);
         }
 
         return $this->movies()
@@ -82,7 +82,7 @@ class User extends Authenticatable
     public function addToStarredList($movie_id)
     {
         if (!$this->isPresent($movie_id)) {
-            return $this->movies()->attach($movie_id);
+            $this->movies()->attach($movie_id);
         }
     
         return $this->movies()
