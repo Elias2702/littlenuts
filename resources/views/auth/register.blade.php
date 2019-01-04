@@ -15,7 +15,7 @@
                             <label for="Firstname" class="col-md-4 col-form-label text-md-right">{{ __('First name') }}</label>
 
                             <div class="col-md-6">
-                                <input id="firstname" type="text" class="form-control{{ $errors->has('firstname') ? ' is-invalid' : '' }}" name="firstname" value="{{ old('firstname') }}" required autofocus>
+                                <input id="firstname" type="text" class="form-control{{ $errors->has('firstname') ? ' is-invalid' : '' }}" name="firstname" value="{{ old('firstname') }}"  required autofocus>
 
                                 @if ($errors->has('firstname'))
                                     <span class="invalid-feedback" role="alert">
@@ -115,6 +115,11 @@
                         </div>
                     </form>
                 </div>
+                    @if ($errors->all())
+                        <div class="alert alert-danger" role="alert" style="margin-bottom: 0px;">
+                            Vous devez remplir correctement tous les champs.
+                        </div>
+                    @endif
             </div>
         </div>
     </div>
