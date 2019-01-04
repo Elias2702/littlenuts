@@ -1796,6 +1796,16 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -1819,28 +1829,49 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
-    return {
-      keywords: null,
-      results: []
-    };
-  },
-  watch: {
-    keywords: function keywords(after, before) {
-      this.fetch();
-    }
+    var _ref;
+
+    return _ref = {
+      movies: []
+    }, _defineProperty(_ref, "movies", {
+      id: '',
+      title: '',
+      synopsis: '',
+      picture_url: '',
+      trailer_url: '',
+      release_date: ''
+    }), _defineProperty(_ref, "actors", []), _defineProperty(_ref, "actors", {
+      id: '',
+      first_name: '',
+      last_name: '',
+      picture_url: ''
+    }), _defineProperty(_ref, "search", ''), _defineProperty(_ref, "showsearch", false), _defineProperty(_ref, "movies", []), _defineProperty(_ref, "actors", []), _ref;
   },
   methods: {
-    fetch: function fetch() {
+    searchMovie: function (_searchMovie) {
+      function searchMovie() {
+        return _searchMovie.apply(this, arguments);
+      }
+
+      searchMovie.toString = function () {
+        return _searchMovie.toString();
+      };
+
+      return searchMovie;
+    }(function () {
       var _this = this;
 
-      axios.get('/api/search', {
-        params: {
-          keywords: this.keywords
-        }
-      }).then(function (response) {
-        return _this.results = response.data;
-      }).catch(function (error) {});
-    }
+      fetch('/movies/search?q=' + this.search).then(function (res) {
+        return res.json;
+      }).then(function (res) {
+        _this.movies = res;
+        _this.search = '';
+        _this.showsearch = true;
+        console.log(searchMovie());
+      }).catch(function (err) {
+        console.log(err);
+      });
+    })
   }
 });
 
@@ -36746,48 +36777,33 @@ var render = function() {
         {
           name: "model",
           rawName: "v-model",
-          value: _vm.keywords,
-          expression: "keywords"
+          value: _vm.search,
+          expression: "search"
         }
       ],
       attrs: { type: "text", placeholder: "Type your search here ..." },
-      domProps: { value: _vm.keywords },
+      domProps: { value: _vm.search },
       on: {
         input: function($event) {
           if ($event.target.composing) {
             return
           }
-          _vm.keywords = $event.target.value
+          _vm.search = $event.target.value
         }
       }
     }),
     _vm._v(" "),
-    _vm._m(0),
-    _vm._v(" "),
-    _vm.results.length > 0
-      ? _c(
-          "ul",
-          _vm._l(_vm.results, function(result) {
-            return _c("li", {
-              key: result.id,
-              domProps: { textContent: _vm._s(result.title) }
-            })
-          }),
-          0
-        )
-      : _vm._e()
-  ])
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
+    _c(
       "button",
       {
         staticClass: "btn btn-outline-dark",
-        attrs: { type: "submit", placeholder: "Search", name: "Search" }
+        attrs: { placeholder: "Search", name: "Search" },
+        on: {
+          click: function($event) {
+            $event.preventDefault()
+            _vm.searchMovie()
+          }
+        }
       },
       [
         _c("i", {
@@ -36795,9 +36811,76 @@ var staticRenderFns = [
           attrs: { "aria-hidden": "true" }
         })
       ]
-    )
-  }
-]
+    ),
+    _vm._v(" "),
+    (_vm.showsearch = true)
+      ? _c("div", [
+          _c(
+            "div",
+            { staticClass: "row" },
+            _vm._l(_vm.movies, function(movie) {
+              return _c("div", { key: movie.id }, [
+                _c("div", [
+                  _c("img", { attrs: { src: movie.picture_url } }),
+                  _vm._v(" "),
+                  _c("div", [
+                    _c(
+                      "h5",
+                      {
+                        staticClass: "card-title",
+                        staticStyle: { "text-align": "center" }
+                      },
+                      [_vm._v(" " + _vm._s(movie.title) + " ")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "p",
+                      {
+                        staticClass: "card-text",
+                        staticStyle: { "text-align": "center" }
+                      },
+                      [_vm._v(" " + _vm._s(movie.synopsis) + " ")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "a",
+                      {
+                        staticClass: "btn btn-primary",
+                        class: _vm.route("moviecard") ? "active" : "",
+                        staticStyle: { margin: "2%" },
+                        attrs: { href: _vm.route("show_movie", movie.id) }
+                      },
+                      [_vm._v("See more")]
+                    ),
+                    _vm._v("-->\n                        "),
+                    _c(
+                      "a",
+                      { staticClass: "btn btn-primary", attrs: { href: "#" } },
+                      [_vm._v("Watch now")]
+                    ),
+                    _c("br"),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c(
+                      "a",
+                      {
+                        staticClass: "btn btn-default",
+                        staticStyle: { margin: "2%" },
+                        attrs: { href: "#" }
+                      },
+                      [_vm._v("Favorite")]
+                    )
+                  ])
+                ])
+              ])
+            }),
+            0
+          )
+        ])
+      : _vm._e()
+  ])
+}
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -48236,15 +48319,14 @@ __webpack_require__.r(__webpack_exports__);
 /*!***********************************************!*\
   !*** ./resources/js/components/SearchBar.vue ***!
   \***********************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _SearchBar_vue_vue_type_template_id_6849e9f0___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./SearchBar.vue?vue&type=template&id=6849e9f0& */ "./resources/js/components/SearchBar.vue?vue&type=template&id=6849e9f0&");
 /* harmony import */ var _SearchBar_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./SearchBar.vue?vue&type=script&lang=js& */ "./resources/js/components/SearchBar.vue?vue&type=script&lang=js&");
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _SearchBar_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _SearchBar_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -48274,7 +48356,7 @@ component.options.__file = "resources/js/components/SearchBar.vue"
 /*!************************************************************************!*\
   !*** ./resources/js/components/SearchBar.vue?vue&type=script&lang=js& ***!
   \************************************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
