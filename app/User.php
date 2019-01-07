@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'is_premium', 'referrer_id'
     ];
 
     /**
@@ -27,6 +27,56 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function referrals()
+    {
+        return $this->hasMany('App\User', 'referrer_id')
+                    ->where('referrer_id', $this->id)
+                    ->get();
+    }
+
+    public function addReferral($referral_id)
+    {
+        $referral = User::findOrFail($referral_id);
+    
+        // Add the referrer to the referral only if
+        // it has no referrer already or it is not its own referrer.
+        if (!empty($referral->referrer_id) || $referral->referrer_id != $this->id) {
+            $referral->referrer_id = $this->id;
+            $referral->save();
+        }
+    }
+
+    public function removeReferral($referral_id)
+    {
+        $referral = User::findOrFail($referral_id);
+
+        if ($referral->referrer_id == $this->id) {
+            $referral->referrer_id = null;
+            $referral->save();
+        }
+    }
+
+    public function isPremium()
+    {
+        return (bool) $this->is_premium;
+    }
+
+    public function setPremium($enabled = true)
+    {
+        $this->is_premium = $enabled;
+
+        if($enabled) {
+            $this->referrer_id = null;
+        }
+
+        return $this->save();
+    }
+
+    public function isPremiumOrReferral()
+    {
+        return $this->is_premium || isset($this->referrer_id);
+    }
 
     public function movies()
     {
@@ -58,9 +108,9 @@ class User extends Authenticatable
     public function removeFromWatchList($movie_id)
     {
         return $this->movies()
-                    ->wherePivot('is_watched', false)
-                    ->wherePivot('is_starred', false)
-                    ->detach($movie_id);
+            ->wherePivot('is_watched', false)
+            ->wherePivot('is_starred', false)
+            ->detach($movie_id);
     }
 
     public function addToWatchedList($movie_id)
@@ -70,13 +120,13 @@ class User extends Authenticatable
         }
 
         return $this->movies()
-                    ->updateExistingPivot($movie_id, ['is_watched' => true]);
+            ->updateExistingPivot($movie_id, ['is_watched' => true]);
     }
 
     public function removeFromWatchedList($movie_id)
     {
         return $this->movies()
-                    ->updateExistingPivot($movie_id, ['is_watched' => false]);
+            ->updateExistingPivot($movie_id, ['is_watched' => false]);
     }
 
     public function addToStarredList($movie_id)
@@ -84,38 +134,38 @@ class User extends Authenticatable
         if (!$this->isPresent($movie_id)) {
             $this->movies()->attach($movie_id);
         }
-    
+
         return $this->movies()
-                    ->updateExistingPivot($movie_id, ['is_starred' => true]);
+            ->updateExistingPivot($movie_id, ['is_starred' => true]);
     }
 
     public function removeFromStarredList($movie_id)
     {
         return $this->movies()
-                    ->updateExistingPivot($movie_id, ['is_starred' => false]);
+            ->updateExistingPivot($movie_id, ['is_starred' => false]);
     }
 
     public function hasInWatchList($movie_id)
     {
         return $this->belongsToMany('App\Movie')
-                    ->wherePivot('movie_id', $movie_id)
-                    ->wherePivot('is_watched', false)
-                    ->exists();
+            ->wherePivot('movie_id', $movie_id)
+            ->wherePivot('is_watched', false)
+            ->exists();
     }
 
     public function hasInWatchedList($movie_id)
     {
         return $this->belongsToMany('App\Movie')
-                    ->wherePivot('movie_id', $movie_id)
-                    ->wherePivot('is_watched', true)
-                    ->exists();
+            ->wherePivot('movie_id', $movie_id)
+            ->wherePivot('is_watched', true)
+            ->exists();
     }
 
     public function hasInStarredList($movie_id)
     {
         return $this->belongsToMany('App\Movie')
-                    ->wherePivot('movie_id', $movie_id)
-                    ->wherePivot('is_starred', true)
-                    ->exists();
+            ->wherePivot('movie_id', $movie_id)
+            ->wherePivot('is_starred', true)
+            ->exists();
     }
 }
