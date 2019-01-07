@@ -17,6 +17,6 @@ $factory->define(App\Actor::class, function (Faker $faker) {
     return [
         'first_name' => $faker->firstName,
         'last_name' => $faker->lastName,
-        'picture_url' => 'http://placehold.jp/350x350.png'
+        'picture_path' => 'http://placehold.jp/350x350.png'
     ];
 });
