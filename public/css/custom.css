@@ -1,0 +1,10 @@
+.container {
+
+}
+#logo_black {
+    height: 150px;
+    margin: auto;
+}
+#logo_container {
+    display: flex;
+}
