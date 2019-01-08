@@ -1,10 +1,10 @@
 version: "3"
 services:
-  
+
     # Launch a MySQL instance that will be available on port 3306.
     # It uses the volume named "db". It will create a default database named "dev" as well as a default
     # user named "dev" with password "dev".
-    
+
     mysql:
         image: mariadb:10.4
         restart: always
@@ -17,14 +17,7 @@ services:
             MYSQL_DATABASE: dev
             MYSQL_USER: dev
             MYSQL_PASSWORD: dev
-    
-<<<<<<< HEAD
-    # Launch a phpmyadmin available on http://localhost:8001 . It is already connected to the MySQL instance.
-=======
-    # Launch a phpmyadmin available on http://localhost:8001.
-    # It is already connected to the MySQL instance.
->>>>>>> f44c9e9272ab4b58882ccc6f535174b071551782
-    
+
     phpmyadmin:
         image: phpmyadmin/phpmyadmin:latest
         depends_on:
@@ -35,15 +28,7 @@ services:
             PMA_HOST: mysql
             PMA_USER: dev
             PMA_PASSWORD: dev
-            
-<<<<<<< HEAD
-    # Launch a mailcatcher. Its admin is available on http://localhost:8002 . It's only useful if some program
-    # is configured to send mails to it using the port 1025.
-=======
-    # Launch a mailcatcher. Its admin is available on http://localhost:8002.
-    # It's only useful if some program is configured to send mails to it using the port 1025.
->>>>>>> f44c9e9272ab4b58882ccc6f535174b071551782
-            
+
     mailcatcher:
         image: tophfr/mailcatcher
         ports:
@@ -51,8 +36,4 @@ services:
             - "8002:80"
 
 volumes:
-<<<<<<< HEAD
     db:
-=======
-    db:
->>>>>>> f44c9e9272ab4b58882ccc6f535174b071551782
