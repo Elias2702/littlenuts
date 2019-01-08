@@ -15,11 +15,30 @@
 
 ## Cookbook
 
-### Use sqlite as database system
+### Use MariaDB from the docker-compose as database system
+
+1. Edit the **.env** file like this:
+
+    ```bash
+    DB_CONNECTION=mysql
+    DB_HOST=172.19.0.1
+    DB_PORT=3306
+    DB_DATABASE=dev
+    DB_USERNAME=dev
+    DB_PASSWORD=dev
+    ```
+
+1. Clear config like this:
+
+    ```bash
+    php artisan config:clear
+    ```
+
+### Use SQLite as database system
 
 1. Create the **database/database.sqlite** file.
 
-1. Edit the **.env** file like this:
+2. Edit the **.env** file like this:
 
     ```bash
     DB_CONNECTION=sqlite
