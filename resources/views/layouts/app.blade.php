@@ -45,7 +45,7 @@
                     </ul>
 
                     <!-- Right Side Of Navbar -->
-                    <search-bar style="text-align: center"></search-bar>
+                    <search style="text-align: center"></search>
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
                         @guest

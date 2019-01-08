@@ -11,8 +11,9 @@ class SearchController extends Controller {
     public function searchMovie(Request $request){
 
         $search = $request->get('q');
-
-        return Movie::search($search)->get();
+        return Movie::all();
+        dd(Movie::search($search)->get());
+        
 
     }
 }

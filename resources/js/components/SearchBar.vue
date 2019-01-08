@@ -3,7 +3,7 @@
     <div id="app">
 
         <input type="text" v-model="search" placeholder="Type your search here ...">
-        <button @click.prevent="searchMovie()" placeholder="Search" name="Search" class="btn btn-outline-dark"><i class="fa fa-search" aria-hidden="true"></i></button>
+        <button @click.prevent="searchMovie" placeholder="Search" name="Search" class="btn btn-outline-dark"><i class="fa fa-search" aria-hidden="true"></i></button>
         
 
         <div v-if="showsearch=true">
@@ -57,18 +57,20 @@ export default {
 
     methods: {
         searchMovie() {
-            fetch('/movies/search?q=' + this.search) 
+            return fetch('/search?q=' + this.search) 
             .then(res => res.json)
             .then(res => {
                 this.movies = res;
                 this.search = '';
                 this.showsearch = true;
-                console.log(searchMovie)
+                console.log(fetch)
+
             })
-        
             .catch(err => {
                 console.log(err);
             });
+
+
         } 
     },
 }

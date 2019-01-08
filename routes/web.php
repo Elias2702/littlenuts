@@ -11,8 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/test', function () {
+    return App\Movie::all();
 });
 
 
@@ -74,3 +74,7 @@ Route::post(
     '/remove-from-starred-list',
     'HomeController@removeFromStarredList'
 )->name('remove-from-starred-list');
+
+// Search
+
+Route::get('/search', 'SearchController@searchMovie');

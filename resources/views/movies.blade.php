@@ -4,8 +4,6 @@
 <div class="container">
     <h1>Movies</h1>
 
-    
-
     <div class="movies_container" style="display: flex; flex-wrap:wrap;">
 
         @foreach ($movies as $movie)
