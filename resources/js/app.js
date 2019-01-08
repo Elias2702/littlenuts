@@ -14,8 +14,6 @@ window.Vue = require('vue');
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
-//Vue.component('search-bar', require('./components/SearchBar.vue').default);
-Vue.component('search', require('./components/Search.vue').default);
 Vue.component('add-movie', require('./components/AddMovie.vue').default);
 
 /**
