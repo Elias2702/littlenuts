@@ -21,5 +21,6 @@ class SettingsController extends Controller {
         $user = Auth::user();
         $user->birthday = $request->input('dateinput');
         $user->save();
+        return redirect()->back();
     }
 }

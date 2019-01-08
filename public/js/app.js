@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -48167,3 +48168,5 @@ module.exports = __webpack_require__(/*! /home/benestruv/Desktop/littlenuts/reso
 /***/ })
 
 /******/ });
+=======
+>>>>>>> f44c9e9272ab4b58882ccc6f535174b071551782
