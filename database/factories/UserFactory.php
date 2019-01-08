@@ -22,6 +22,7 @@ $factory->define(App\User::class, function (Faker $faker) {
         'email_verified_at' => now(),
         'password' => bcrypt('111111'),
         'remember_token' => str_random(10),
+        'avatar_path' => "https://api.adorable.io/avatars/350/$faker->word.png",
         'is_premium' => $is_premium,
         'referrer_id' => $is_premium ? null : random_int(1, 10),
     ];
