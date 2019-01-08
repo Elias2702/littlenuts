@@ -66,6 +66,14 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        request()->validate([
+          'firstname' => 'required',
+          'lastname' => 'required',
+          'gender' => 'required',
+          'birthday' => 'required',
+          'email' => 'required',
+          'password' => 'required',
+        ]);
         return User::create([
             'firstname' => $data['firstname'],
             'lastname' => $data['lastname'],
@@ -73,6 +81,8 @@ class RegisterController extends Controller
             'birthday' => $data['birthday'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'is_premium' => array_key_exists('is_premium', $data) ? true : false,
+            'referrer_id' => $data['referrer_id'],
         ]);
     }
 }

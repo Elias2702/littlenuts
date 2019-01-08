@@ -34,6 +34,9 @@ Route::get('/actors/{id}', 'PublicController@actor')->name('actors.one');
 Route::get('/movies', 'PublicController@movies')->name('movies.all');
 Route::get('/movies/{id}', 'PublicController@movie')->name('movies.one');
 
+// Add Movies as a User
+Route::get('/add_movie', 'AddMovieController@index')->name('add.movies');
+
 // AUTH --------------------------------------------------------------------- //
 
 Route::get('/moviecard/{id}', 'MovieController@showMovie')->name('show_movie'); // Afficher un film en particulier
@@ -44,8 +47,8 @@ Auth::routes();
 Route::get('/home/{action?}', 'HomeController@index')->name('home');
 
 // Others
-Route::get('/user_settings', 'SettingsController@settings');
-Route::patch('/settings', 'SettingsController@edit'); 
+Route::get('/user_settings', 'SettingsController@settings')->name('user.settings');
+Route::patch('/settings', 'SettingsController@edit');
 
 // Add to lists
 Route::post(
