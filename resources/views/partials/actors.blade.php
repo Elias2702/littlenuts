@@ -1,4 +1,8 @@
 <div class="card-columns">
+    <div id="ap">
+        Bonjour
+    </div>
+
     @foreach ($actors as $actor)
     <div class="card text-center">
             <div class="card-body">

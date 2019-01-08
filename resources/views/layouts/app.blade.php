@@ -88,5 +88,8 @@
         </main>
     </div>
 
+    <!-- Chargement de vue.js -->
+    <script src="/js/app.js"></script>
+
 </body>
 </html>
