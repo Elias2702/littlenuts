@@ -106,6 +106,31 @@
                             </div>
                         </div>
 
+                        <div class="form-group row">
+                            <label for="referrer_id" class="col-md-4 col-form-label text-md-right">{{ __('Referrer') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="referrer_id" type="number" class="form-control{{ $errors->has('referrer_id') ? ' is-invalid' : '' }}" name="referrer_id" value="{{ old('referrer_id') }}">
+
+                                @if ($errors->has('referrer_id'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('referrer_id') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="" class="col-md-4 col-form-label text-md-right"></label>
+
+                            <div class="col-md-6">
+                                <div class="custom-control custom-switch">
+                                    <input type="checkbox" class="form-control custom-control-input" id="is_premium" name="is_premium" value="{{ old('is_premium') }}">
+                                    <label class="custom-control-label" for="is_premium">Need a premium account</label>
+                                </div>
+                            </div>
+                        </div>
+
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
