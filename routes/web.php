@@ -2,6 +2,10 @@
 
 // GUEST -------------------------------------------------------------------- //
 
+// Route::get('/all-movies', function() {
+//     return App\Movie::all();
+// });
+
 // Homepage
 Route::get('/', 'PublicController@index')->name('index');
 

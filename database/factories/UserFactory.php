@@ -12,7 +12,7 @@ use App\User;
 | your application. Factories provide a convenient way to generate new
 | model instances for testing / seeding your application's database.
 |
-*/
+ */
 
 $factory->define(App\User::class, function (Faker $faker) {
     $is_premium = (bool)random_int(0, 1);
