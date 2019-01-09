@@ -7,7 +7,10 @@
 
 ## Laravel-Vue SPA
 
-- Voir https://github.com/cretueusebiu/laravel-vue-spa
+- Voir https://github.com/cretueusebiu/laravel-vue-spa pour info. On a déjà installé cet environnement en clean dans SPA_commun.
+Petit à petit, avec Jolan on va implémenter les fonctions de bases nécessaires à LittleNuts pour qu'on puisse tous se mettre à bosser sur les Vue Components de manière safe et clean.
+
+### Marche à suivre
 
 - Puller la branche SPA_commun
 ```
