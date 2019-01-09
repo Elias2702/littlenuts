@@ -2,7 +2,9 @@
   <card :title="$t('catalogue')">
       <div>
           <ul>
-              <li v-for="movie in movies">
+              <li v-for="movie in movies"></li>
+          </ul>
+
       </div>
   </card>
 </template>
