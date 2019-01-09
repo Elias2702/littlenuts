@@ -13,8 +13,9 @@ class SearchController extends Controller {
         $search = $request->search;
         $movies = Movie::where('title', 'release_date', "%$search%")->paginate(20);
 
-        return response()->json([
-            'model'     => $movies
-        ]);
+        return view('searchtest');
+        //return response()->json([
+        //    'model'     => $movies
+        //]);
     }
 }

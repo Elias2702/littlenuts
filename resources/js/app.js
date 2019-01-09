@@ -1,21 +1,18 @@
-require('./bootstrap');
+import Vue from 'vue'
+import store from '~/store'
+import router from '~/router'
+import i18n from '~/plugins/i18n'
+import App from '~/components/App'
 
-window.Vue = require('vue');
+import '~/plugins'
+import '~/components'
 
-/**
- * The following block of code may be used to automatically register your
- * Vue components. It will recursively scan this directory for the Vue
- * components and automatically register them with their "basename".
- *
- * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
- */
+Vue.config.productionTip = false
 
-// const files = require.context('./', true, /\.vue$/i)
-// files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
-
-Vue.component('add-movie', require('./components/AddMovie.vue').default);
-Vue.component('search-bar', require('./components/SearchBar.vue').default);
-
-const app = new Vue ({
-    el: '#app',
-});
+/* eslint-disable no-new */
+new Vue({
+  i18n,
+  store,
+  router,
+  ...App
+})

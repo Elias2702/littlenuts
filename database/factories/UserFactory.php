@@ -1,7 +1,6 @@
 <?php
 
 use Faker\Generator as Faker;
-use App\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,15 +14,12 @@ use App\User;
 */
 
 $factory->define(App\User::class, function (Faker $faker) {
-    $is_premium = (bool)random_int(0, 1);
+    static $password;
+
     return [
-        'firstname' => $faker->name,
-        'lastname' => $faker->name,
+        'name' => $faker->name,
         'email' => $faker->unique()->safeEmail,
-        'email_verified_at' => now(),
-        'password' => bcrypt('111111'),
+        'password' => $password ?: $password = bcrypt('secret'),
         'remember_token' => str_random(10),
-        'is_premium' => $is_premium,
-        'referrer_id' => $is_premium ? null : random_int(1, 10),
     ];
 });

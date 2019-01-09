@@ -1,78 +1,54 @@
 # LittleNuts
 
-<p align="center">
-    <img src="./public/logo.svg" alt="logo" width="350">
-</p>
+## Liens utiles
 
-## Useful links
+- [Consignes du projet](https://github.com/becodeorg/LIE-Hamilton-1.7/tree/master/02-La-colline/02a-VueJS-Laravel)
 
-- [Instructions](https://github.com/becodeorg/LIE-Hamilton-1.7/tree/master/02-La-colline/02a-VueJS-Laravel)
-- [Laravel (master) documentation](https://laravel.com/docs/master)
-- [Laravel schema designer](https://laravelsd.com/)
-- [Vue (2.x) api](https://vuejs.org/v2/api/)
-- [Vue (2.x) cookbook](https://vuejs.org/v2/cookbook/)
-- [Vue (2.x) guide](https://vuejs.org/v2/guide/)
 
-## Cookbook
+## Laravel-Vue SPA
 
-### Use sqlite as database system
+- Voir https://github.com/cretueusebiu/laravel-vue-spa pour info. On a déjà installé cet environnement en clean dans SPA_commun.
+Petit à petit, avec Jolan on va implémenter les fonctions de bases nécessaires à LittleNuts pour qu'on puisse tous se mettre à bosser sur les Vue Components de manière safe et clean.
 
-1. Create the **database/database.sqlite** file.
+### Marche à suivre
 
-1. Edit the **.env** file like this:
-
-    ```bash
-    DB_CONNECTION=sqlite
-    # DB_HOST=127.0.0.1
-    # DB_PORT=3306
-    # DB_DATABASE=homestead
-    # DB_USERNAME=homestead
-    # DB_PASSWORD=secret
-    ```
-
-### Change the application name
-
-1. Edit the **.env** file like this:
-
-    ```bash
-    APP_NAME=LittleNuts
-    ```
-
-1. Restart your server.
-
-### Create a basic authentification system
-
-1. Run this command in your terminal.
-
-    ```bash
-    php artisan make:auth
-    ```
-
-1. Run this command in your terminal.
-
-    ```bash
-    php artisan migrate
-    ```
-
-### Set a navigation link as active with Laravel and Bootstrap
-
-```html
-<li class="nav-item {{ Route::is('register') ? 'active' : '' }}">
-    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-</li>
+- Puller la branche SPA_commun
 ```
-
-### Use dump-autoload before seeding a database
-
-```bash
-composer dump-autoload
-php artisan db:seed
+git pull origin SPA_commun
 ```
-
-### Install prestissimo to make composer 10 times faster
-
-```bash
-composer global require hirak/prestissimo
+- Après le pull, s'assurer que le fichier .env est bien paramétré
 ```
+APP_NAME=LittleNuts
+```
+```
+DB_CONNECTION=mysql
+DB_HOST=172.19.0.1
+DB_PORT=3306
+DB_DATABASE=dev
+DB_USERNAME=dev
+DB_PASSWORD=dev
+```
+- Reseter votre base de données
+```
+php artisan migrate:reset
+```
+- Si ça ne marche pas, le faire manuellement dans phpMyAdmin
 
-Could need to be ran as root/sudo.
+- Migrer la base de données
+```
+php artisan migrate
+```
+- Et puis, comme d'hab niveau serveurs
+```
+docker-compose up
+php artisan serve
+npm run watch
+```
+- Si tout marche bien, créer sa branche
+```
+git branch SPA_prénom
+git checkout SPA_prénom
+git merge SPA_commun
+git push origin SPA_prénom
+```
+- Be awesome

@@ -1,11 +1,7 @@
-@extends('layouts.app')
-
-@section('content')
-
-<search-bar></search-bar>
-
 <div class="container">
     <h1>Movies</h1>
+
+    <search-bar></search-bar>
 
     <div class="movies_container" style="display: flex; flex-wrap:wrap;">
 
@@ -30,4 +26,3 @@
     </div>
 </div>
 
-@endsection
