@@ -1,9 +1,14 @@
 <?php
+
 Route::resource('movie', 'MovieController');
 Route::resource('actor', 'ActorController');
 Route::resource('list', 'ListController');
 Route::resource('user', 'UserController');
-Route::resource('search', 'SearchController');
+
+
+
+
+
 // GUEST -------------------------------------------------------------------- //
 
 // Homepage
@@ -22,7 +27,7 @@ Route::get('/add_movie', 'AddMovieController@index')->name('add.movies');
 
 // AUTH --------------------------------------------------------------------- //
 
-Route::get('/moviecard/{id}', 'MovieController@showMovie')->name('show_movie'); // Affiche un film en particulier
+Route::get('/moviecard/{id}', 'MovieController@showMovie')->name('show_movie'); // Afficher un film en particulier
 // Authentication
 Auth::routes();
 
