@@ -17,7 +17,9 @@ use App\User;
 $factory->define(App\User::class, function (Faker $faker) {
     $is_premium = (bool)random_int(0, 1);
     return [
-        'name' => $faker->name,
+        'firstname' => $faker->name,
+        'lastname' => $faker->name,
+        'birthday' => $faker->date,
         'email' => $faker->unique()->safeEmail,
         'email_verified_at' => now(),
         'password' => bcrypt('111111'),

@@ -9,6 +9,8 @@ const Home = () => import('~/pages/home').then(m => m.default || m)
 const Settings = () => import('~/pages/settings/index').then(m => m.default || m)
 const SettingsProfile = () => import('~/pages/settings/profile').then(m => m.default || m)
 const SettingsPassword = () => import('~/pages/settings/password').then(m => m.default || m)
+const Catalogue = () => import('~/pages/catalogue').then(m => m.default || m)
+
 
 export default [
   { path: '/', name: 'welcome', component: Welcome },
@@ -26,6 +28,7 @@ export default [
       { path: 'profile', name: 'settings.profile', component: SettingsProfile },
       { path: 'password', name: 'settings.password', component: SettingsPassword }
     ] },
+    { path: '/catalogue', name: 'catalogue', component: Catalogue },
 
   { path: '*', component: NotFound }
 ]

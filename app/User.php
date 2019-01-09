@@ -17,7 +17,7 @@ class User extends Authenticatable implements JWTSubject
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'is_premium', 'referrer_id'
+        'firstname', 'lastname', 'birthday', 'email', 'is_premium', 'referrer_id', 'password',
     ];
 
     /**
@@ -48,7 +48,7 @@ class User extends Authenticatable implements JWTSubject
     public function addReferral($referral_id)
     {
         $referral = User::findOrFail($referral_id);
-    
+
         // Add the referrer to the referral only if
         // it has no referrer already or it is not its own referrer.
         if (!empty($referral->referrer_id) || $referral->referrer_id != $this->id) {
