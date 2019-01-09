@@ -47,6 +47,7 @@ npm run watch
 - Si tout marche bien, créer sa branche
 ```
 git branch SPA_prénom
+git checkout SPA_prénom
 git merge SPA_commun
 git push origin SPA_prénom
 ```
