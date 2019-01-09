@@ -1,17 +1,6 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
-Route::get('/test', function () {
+Route::get('/', function () {
     return App\Movie::all();
 });
 
@@ -20,11 +9,11 @@ Route::resource('movie', 'MovieController');
 Route::resource('actor', 'ActorController');
 Route::resource('list', 'ListController');
 Route::resource('user', 'UserController');
-Route::resource('search', 'SearchController');
 // GUEST -------------------------------------------------------------------- //
 
 // Homepage
 Route::get('/', 'PublicController@index')->name('index');
+Route::get('/searchtest', 'SearchController@getData')->name('search.movies');
 
 // Actors
 Route::get('/actors', 'PublicController@actors')->name('actors.all');
@@ -77,7 +66,3 @@ Route::post(
     '/remove-from-starred-list',
     'HomeController@removeFromStarredList'
 )->name('remove-from-starred-list');
-
-// Search
-
-Route::get('/search', 'SearchController@searchMovie');

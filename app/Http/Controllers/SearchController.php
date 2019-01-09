@@ -8,12 +8,13 @@ use Illuminate\Support\Facades\Input;
 
 class SearchController extends Controller {
 
-    public function searchMovie(Request $request){
+    public function getData(Request $request){
 
-        $search = $request->get('q');
-        return Movie::all();
-        dd(Movie::search($search)->get());
-        
+        $search = $request->search;
+        $movies = Movie::where('title', 'release_date', "%$search%")->paginate(20);
 
+        return response()->json([
+            'model'     => $movies
+        ]);
     }
 }
