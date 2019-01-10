@@ -1,35 +1,44 @@
 <template>
   <card :title="$t('catalogue')">
-      <div>
-          <ul>
-              <li v-for="movie in movies"></li>
-          </ul>
-
-      </div>
+      <ul>
+        <li v-for="movie in movies" :key="movie.id">{{ movie.title }}</li>
+      </ul>
   </card>
 </template>
 
 <script>
 
-import { mapGetters } from 'vue'
+import axios from 'axios';
 
 export default {
-  middleware: 'auth',
+  middleware: "guest",
 
-  metaInfo () {
-    return { title: this.$t('catalogue') }
+  metaInfo() {
+    return { title: this.$t("catalogue") };
   },
 
-  data () {
+  data: () => {
+    return {
       movies: ''
+    };
   },
 
-  computed: mapGetters({
-      movies: 'movies'
-  }),
+  created() {
+    // TODO: Make it working correctly!!!
+    axios.get('movies').then((response) => {
+      console.log(response.data);
+      // this.movies = response.data;
+    });
+  },
 
   methods: {
-
+    getMovies: function() {
+      this.movies = [
+        { id: 1, title: "Test #1" },
+        { id: 2, title: "Test #2" },
+        { id: 3, title: "Test #3" }
+      ];
+    }
   }
-}
+};
 </script>

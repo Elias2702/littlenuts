@@ -1,7 +1,7 @@
 <template>
   <nav class="navbar navbar-expand-lg navbar-light bg-white">
     <div class="container">
-      <router-link :to="{ name: user ? 'home' : 'welcome' }" class="navbar-brand">
+      <router-link :to="{ name: user ? 'home' : 'catalogue' }" class="navbar-brand">
         {{ appName }}
       </router-link>
 
@@ -40,6 +40,11 @@
           </li>
           <!-- Guest -->
           <template v-else>
+            <li class="nav-item">
+              <router-link :to="{ name: 'catalogue' }" class="nav-link" active-class="active">
+                {{ $t('catalogue') }}
+              </router-link>
+            </li>
             <li class="nav-item">
               <router-link :to="{ name: 'login' }" class="nav-link" active-class="active">
                 {{ $t('login') }}
