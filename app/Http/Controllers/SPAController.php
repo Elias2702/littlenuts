@@ -2,14 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\User;
 use App\Actor;
 use App\Movie;
 
-
 class SPAController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('guest');
+    }
+
     public function createMovie(array $data)
     {
         return Movie::create([
@@ -21,7 +26,7 @@ class SPAController extends Controller
         ]);
     }
 
-    public function showMovies()
+    public function showMovies(Request $request)
     {
         return Movie::all();
     }
