@@ -23,7 +23,6 @@ Route::group(['middleware' => 'auth:api'], function () {
 });
 
 Route::group(['middleware' => 'guest:api'], function () {
-
     Route::get('movies', 'SPAController@showMovies');
 
     Route::post('login', 'Auth\LoginController@login');
