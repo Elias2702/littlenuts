@@ -3,11 +3,11 @@
     <div class="col-lg-8 m-auto">
       <card :title="$t('register')">
         <form @submit.prevent="register" @keydown="form.onKeydown($event)">
-          <!-- Name -->
+          <!-- Firstname and Lastname -->
           <div class="form-group row">
             <label class="col-md-3 col-form-label text-md-right">{{ $t('firstname') }}</label>
             <div class="col-md-7">
-              <input v-model="form.name" :class="{ 'is-invalid': form.errors.has('firstname') }" class="form-control" type="text" name="firstname">
+              <input v-model="form.firstname" :class="{ 'is-invalid': form.errors.has('firstname') }" class="form-control" type="text" name="firstname">
               <has-error :form="form" field="firstname"/>
             </div>
           </div>
