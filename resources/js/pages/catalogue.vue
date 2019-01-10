@@ -2,7 +2,7 @@
   <card :title="$t('catalogue')">
       <div>
           <ul>
-              <li v-for="movie in movies"></li>
+              <!-- <li>{{ title }}</li> -->
           </ul>
 
       </div>
@@ -21,7 +21,11 @@ export default {
   },
 
   data () {
-      movies: ''
+      title: ''
+  },
+
+  created () {
+      // this.title = this.movies.title;
   },
 
   computed: mapGetters({
