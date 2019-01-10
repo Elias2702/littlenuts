@@ -3,12 +3,20 @@
     <form @submit.prevent="update" @keydown="form.onKeydown($event)">
       <alert-success :form="form" :message="$t('info_updated')"/>
 
-      <!-- Name -->
+      <!-- Firstname and Lastname -->
       <div class="form-group row">
-        <label class="col-md-3 col-form-label text-md-right">{{ $t('name') }}</label>
+        <label class="col-md-3 col-form-label text-md-right">{{ $t('firstname') }}</label>
         <div class="col-md-7">
-          <input v-model="form.name" :class="{ 'is-invalid': form.errors.has('name') }" class="form-control" type="text" name="name">
-          <has-error :form="form" field="name"/>
+          <input v-model="form.firstname" :class="{ 'is-invalid': form.errors.has('firstname') }" class="form-control" type="text" name="firstname">
+          <has-error :form="form" field="firstname"/>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label class="col-md-3 col-form-label text-md-right">{{ $t('lastname') }}</label>
+        <div class="col-md-7">
+          <input v-model="form.lastname" :class="{ 'is-invalid': form.errors.has('lastname') }" class="form-control" type="text" name="lastname">
+          <has-error :form="form" field="lastname"/>
         </div>
       </div>
 
@@ -44,7 +52,8 @@ export default {
 
   data: () => ({
     form: new Form({
-      name: '',
+      firstname: '',
+      lastname: '',
       email: ''
     })
   }),
