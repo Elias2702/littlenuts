@@ -1,4 +1,12 @@
 <template>
+<<<<<<< HEAD
+  <card :title="$t('catalogue')">
+      <div>
+          <ul>
+              <!-- <li>{{ title }}</li> -->
+          </ul>
+
+=======
   <card :title="$t('catalogue')" class="mb-4">
     <div class="row text-center">
       <div v-for="movie in movies" :key="movie.id" class="col-lg-3 col-md-4 col-6">
@@ -17,6 +25,7 @@
             <small class="text-muted">{{ movie.release_date }}</small>
           </p>
         </div>
+>>>>>>> cc44276d8f2765a19c2a85f9c244153438c65ee5
       </div>
     </div>
   </card>
@@ -32,10 +41,19 @@ export default {
     return { title: this.$t("catalogue") };
   },
 
+<<<<<<< HEAD
+  data () {
+      title: ''
+  },
+
+  created () {
+      // this.title = this.movies.title;
+=======
   data: () => {
     return {
       movies: ""
     };
+>>>>>>> cc44276d8f2765a19c2a85f9c244153438c65ee5
   },
 
   created() {
