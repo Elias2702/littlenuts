@@ -7,6 +7,7 @@ const NotFound = () => import('~/pages/errors/404').then(m => m.default || m)
 const Home = () => import('~/pages/home').then(m => m.default || m)
 const Settings = () => import('~/pages/settings/index').then(m => m.default || m)
 const SettingsProfile = () => import('~/pages/settings/profile').then(m => m.default || m)
+const SettingsAccount = () => import('~/pages/settings/account').then(m => m.default || m)
 const SettingsPassword = () => import('~/pages/settings/password').then(m => m.default || m)
 const Catalogue = () => import('~/pages/catalogue').then(m => m.default || m)
 const Actors = () => import('~/pages/actors').then(m => m.default || m)
@@ -26,6 +27,7 @@ export default [
     children: [
       { path: '', redirect: { name: 'settings.profile' } },
       { path: 'profile', name: 'settings.profile', component: SettingsProfile },
+      { path: 'account', name: 'settings.account', component: SettingsAccount },
       { path: 'password', name: 'settings.password', component: SettingsPassword }
     ]
   },
