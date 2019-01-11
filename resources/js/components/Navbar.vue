@@ -1,9 +1,9 @@
 <template>
   <nav class="navbar navbar-expand-lg navbar-light">
     <div class="container">
-        <!-- <img src="{{asset('assets/images/logo_white.svg')}}" width="80"> -->
+      
       <router-link :to="{ name: user ? 'home' : 'movies' }" class="navbar-brand text-white">
-        {{ appName }}
+        <img src='assets/images/logo_white.svg' alt="LittleNuts" width="90">
       </router-link>
 
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false">
