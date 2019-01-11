@@ -38,6 +38,9 @@ Route::group(['middleware' => 'guest:api'], function () {
     Route::get('catalogue', function (Request $request) {
         return $request->movies();
     });
+    Route::get('catalogue', function (Request $request) {
+        return $request->movies();
+    });
     Route::post('oauth/{driver}', 'Auth\OAuthController@redirectToProvider');
     Route::get('oauth/{driver}/callback', 'Auth\OAuthController@handleProviderCallback')->name('oauth.callback');
 });
