@@ -2,7 +2,7 @@
   <nav class="navbar navbar-expand-lg navbar-light">
     <div class="container">
         <!-- <img src="{{asset('assets/images/logo_white.svg')}}" width="80"> -->
-      <router-link :to="{ name: user ? 'home' : 'catalogue' }" class="navbar-brand text-white">
+      <router-link :to="{ name: user ? 'home' : 'movies' }" class="navbar-brand text-white">
         {{ appName }}
       </router-link>
 
@@ -14,8 +14,8 @@
         <ul class="navbar-nav">
           <locale-dropdown/>
           <li class="nav-item">
-            <router-link :to="{ name: 'catalogue' }" class="nav-link text-white" active-class="active">
-              {{ $t('catalogue') }}
+            <router-link :to="{ name: 'movies' }" class="nav-link text-white" active-class="active">
+              {{ $t('movies') }}
             </router-link>
           </li>
           <li class="nav-item">
