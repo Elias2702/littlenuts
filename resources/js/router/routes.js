@@ -1,4 +1,3 @@
-const Welcome = () => import('~/pages/welcome').then(m => m.default || m)
 const Login = () => import('~/pages/auth/login').then(m => m.default || m)
 const Register = () => import('~/pages/auth/register').then(m => m.default || m)
 const PasswordEmail = () => import('~/pages/auth/password/email').then(m => m.default || m)
@@ -10,11 +9,18 @@ const Settings = () => import('~/pages/settings/index').then(m => m.default || m
 const SettingsProfile = () => import('~/pages/settings/profile').then(m => m.default || m)
 const SettingsAccount = () => import('~/pages/settings/account').then(m => m.default || m)
 const SettingsPassword = () => import('~/pages/settings/password').then(m => m.default || m)
-const Catalogue = () => import('~/pages/catalogue').then(m => m.default || m)
 
+const Movies = () => import('~/pages/movies').then(m => m.default || m)
+const Movie = () => import('~/pages/movie').then(m => m.default || m)
+const Actors = () => import('~/pages/actors').then(m => m.default || m)
+const Actor = () => import('~/pages/actor').then(m => m.default || m)
 
 export default [
-  { path: '/', name: 'welcome', component: Welcome },
+  { path: '/movies', name: 'movies', component: Movies },
+  { path: '/actors', name: 'actors', component: Actors },
+
+  { path: '/movies/:id', name: 'movie', component: Movie },
+  { path: '/actors/:id', name: 'actor', component: Actor },
 
   { path: '/login', name: 'login', component: Login },
   { path: '/register', name: 'register', component: Register },
@@ -29,8 +35,8 @@ export default [
       { path: 'profile', name: 'settings.profile', component: SettingsProfile },
       { path: 'account', name: 'settings.account', component: SettingsAccount },
       { path: 'password', name: 'settings.password', component: SettingsPassword }
-    ] },
-    { path: '/catalogue', name: 'catalogue', component: Catalogue },
+    ]
+  },
 
   { path: '*', component: NotFound }
 ]

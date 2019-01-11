@@ -1,7 +1,7 @@
 <template>
   <nav class="navbar navbar-expand-lg navbar-light bg-white">
     <div class="container">
-      <router-link :to="{ name: user ? 'home' : 'welcome' }" class="navbar-brand">
+      <router-link :to="{ name: user ? 'home' : 'movies' }" class="navbar-brand">
         {{ appName }}
       </router-link>
 
@@ -12,9 +12,16 @@
       <div id="navbarToggler" class="collapse navbar-collapse">
         <ul class="navbar-nav">
           <locale-dropdown/>
-          <!-- <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
-          </li> -->
+          <li class="nav-item">
+            <router-link :to="{ name: 'movies' }" class="nav-link" active-class="active">
+              {{ $t('movies') }}
+            </router-link>
+          </li>
+          <li class="nav-item">
+            <router-link :to="{ name: 'actors' }" class="nav-link" active-class="active">
+              {{ $t('actors') }}
+            </router-link>
+          </li>
         </ul>
 
         <ul class="navbar-nav ml-auto">

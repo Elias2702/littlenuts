@@ -2,14 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\User;
 use App\Actor;
 use App\Movie;
 
-
 class SPAController extends Controller
 {
+    // public function __construct()
+    // {
+    //     $this->middleware('guest');
+    // }
+
     public function createMovie(array $data)
     {
         return Movie::create([
@@ -21,8 +27,38 @@ class SPAController extends Controller
         ]);
     }
 
+    public function showActors()
+    {
+        return Actor::all();
+    }
+
+    public function showActorDetails($id)
+    {
+        return Actor::with('movies')->find($id);
+    }
+
     public function showMovies()
     {
         return Movie::all();
+    }
+
+    public function showMovieDetails($id)
+    {
+        return Movie::find($id);
+    }
+
+    public function getWatchList()
+    {
+        return Auth::user()->movies()->get();
+    }
+
+    public function getWatchedList()
+    {
+        return Auth::user()->watchedMovies()->get();
+    }
+
+    public function getStarredList()
+    {
+        return Auth::user()->starredMovies()->get();
     }
 }
