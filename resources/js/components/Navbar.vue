@@ -29,7 +29,7 @@
           <li v-if="user" class="nav-item dropdown">
             <a class="nav-link dropdown-toggle text-dark"
                href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <img :src="user.photo_url" class="rounded-circle profile-photo mr-1">
+              <fa icon="user-cog"/>
               {{ user.name }}
             </a>
             <div class="dropdown-menu">

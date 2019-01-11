@@ -34,6 +34,11 @@ export default {
           route: 'settings.profile'
         },
         {
+          icon: 'credit-card',
+          name: this.$t('account'),
+          route: 'settings.account'
+        },
+        {
           icon: 'lock',
           name: this.$t('password'),
           route: 'settings.password'
