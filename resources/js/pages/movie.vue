@@ -50,8 +50,6 @@ export default {
     axios.get(`/api/movies/${this.$route.params.id}`).then(response => {
       this.movie = response.data;
     });
-
-    console.log(this.user);
   }
 };
 </script>
