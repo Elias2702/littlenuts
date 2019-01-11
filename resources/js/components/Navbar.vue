@@ -23,7 +23,7 @@
             </router-link>
           </li>
           <li>
-            <input type="text" v-model="filteredMovie" placeholder="Type your search here ...">
+            <input type="text" v-model="search" placeholder="Type your search here ...">
           </li>
         </ul>
 
