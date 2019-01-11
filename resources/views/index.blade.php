@@ -26,6 +26,7 @@ $polyfills = [
   <title>{{ config('app.name') }}</title>
   <link rel="stylesheet" href="{{ mix('css/app.css') }}">
   <link rel="stylesheet" href="/css/style.css">
+  <link rel="shortcut icon" type="image/ico" href="assets/images/favicon.ico"/>
 
 </head>
 <body>
