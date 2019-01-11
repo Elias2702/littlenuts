@@ -12,9 +12,16 @@
       <div id="navbarToggler" class="collapse navbar-collapse">
         <ul class="navbar-nav">
           <locale-dropdown/>
-          <!-- <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
-          </li> -->
+          <li class="nav-item">
+            <router-link :to="{ name: 'catalogue' }" class="nav-link" active-class="active">
+              {{ $t('catalogue') }}
+            </router-link>
+          </li>
+          <li class="nav-item">
+            <router-link :to="{ name: 'actors' }" class="nav-link" active-class="active">
+              {{ $t('actors') }}
+            </router-link>
+          </li>
         </ul>
 
         <ul class="navbar-nav ml-auto">
@@ -40,11 +47,6 @@
           </li>
           <!-- Guest -->
           <template v-else>
-            <li class="nav-item">
-              <router-link :to="{ name: 'catalogue' }" class="nav-link" active-class="active">
-                {{ $t('catalogue') }}
-              </router-link>
-            </li>
             <li class="nav-item">
               <router-link :to="{ name: 'login' }" class="nav-link" active-class="active">
                 {{ $t('login') }}

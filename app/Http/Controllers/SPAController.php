@@ -10,10 +10,10 @@ use App\Movie;
 
 class SPAController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('guest');
-    }
+    // public function __construct()
+    // {
+    //     $this->middleware('guest');
+    // }
 
     public function createMovie(array $data)
     {
@@ -26,7 +26,12 @@ class SPAController extends Controller
         ]);
     }
 
-    public function showMovies(Request $request)
+    public function showActors()
+    {
+        return Actor::all();
+    }
+
+    public function showMovies()
     {
         return Movie::all();
     }

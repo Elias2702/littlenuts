@@ -3,11 +3,11 @@
     <div class="row text-center">
       <div v-for="movie in movies" :key="movie.id" class="col-lg-3 col-md-4 col-6">
         <div class="card-body">
-          <a href="#">
+          <a :href="movie.id">
             <img :src="movie.cover_path" class="img-fluid mb-3">
           </a>
           <h5 class="card-title" style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">
-            <a href="#">{{ movie.title }}</a>
+            <a :href="movie.id">{{ movie.title }}</a>
           </h5>
           <p
             class="card-text"
@@ -26,7 +26,7 @@
 import axios from "axios";
 
 export default {
-  middleware: "guest",
+  // middleware: "guest",
 
   metaInfo() {
     return { title: this.$t("catalogue") };
@@ -39,19 +39,9 @@ export default {
   },
 
   created() {
-    axios.get("movies").then(response => {
+    axios.get("api/movies").then(response => {
       this.movies = response.data;
     });
-  },
-
-  methods: {
-    getMovies: function() {
-      this.movies = [
-        { id: 1, title: "Test #1" },
-        { id: 2, title: "Test #2" },
-        { id: 3, title: "Test #3" }
-      ];
-    }
   }
 };
 </script>

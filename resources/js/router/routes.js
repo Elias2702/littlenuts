@@ -9,9 +9,11 @@ const Settings = () => import('~/pages/settings/index').then(m => m.default || m
 const SettingsProfile = () => import('~/pages/settings/profile').then(m => m.default || m)
 const SettingsPassword = () => import('~/pages/settings/password').then(m => m.default || m)
 const Catalogue = () => import('~/pages/catalogue').then(m => m.default || m)
+const Actors = () => import('~/pages/actors').then(m => m.default || m)
 
 export default [
   { path: '/catalogue', name: 'catalogue', component: Catalogue },
+  { path: '/actors', name: 'actors', component: Actors },
 
   { path: '/login', name: 'login', component: Login },
   { path: '/register', name: 'register', component: Register },
