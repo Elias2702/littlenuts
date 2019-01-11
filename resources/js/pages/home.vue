@@ -4,13 +4,25 @@
     <div class="card-header">
       <ul class="nav nav-tabs card-header-tabs">
         <li class="nav-item">
-          <a class="nav-link btn" @click="watchList(); isActive = 1" :class="{active:isActive == 1}">Watchlist</a>
+          <a
+            class="nav-link btn"
+            @click="watchList(); isActive = 1"
+            :class="{active:isActive == 1}"
+          >Watchlist</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link btn" @click="watchedList(); isActive = 2" :class="{active:isActive == 2}">Watched</a>
+          <a
+            class="nav-link btn"
+            @click="watchedList(); isActive = 2"
+            :class="{active:isActive == 2}"
+          >Watched</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link btn" @click="starredList(); isActive = 3" :class="{active:isActive == 3}">Starred</a>
+          <a
+            class="nav-link btn"
+            @click="starredList(); isActive = 3"
+            :class="{active:isActive == 3}"
+          >Starred</a>
         </li>
       </ul>
     </div>
@@ -20,14 +32,14 @@
       <div class="row text-center">
         <div v-for="movie in movies" :key="movie.id" class="col-lg-3 col-md-4 col-6">
           <div class="card-body">
-            <a :href="movie.id">
+            <router-link :to="{ name: 'movie', params: { id: movie.id }}">
               <img :src="movie.cover_path" class="img-fluid mb-3">
-            </a>
+            </router-link>
             <h5
               class="card-title"
               style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;"
             >
-              <a :href="movie.id">{{ movie.title }}</a>
+              <router-link :to="{ name: 'movie', params: { id: movie.id }}">{{ movie.title }}</router-link>
             </h5>
             <p
               class="card-text"
@@ -56,7 +68,7 @@ export default {
   data: () => {
     return {
       movies: "",
-      isActive: 1,
+      isActive: 1
     };
   },
 
