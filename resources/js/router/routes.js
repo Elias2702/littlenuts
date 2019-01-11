@@ -4,6 +4,7 @@ const Register = () => import('~/pages/auth/register').then(m => m.default || m)
 const PasswordEmail = () => import('~/pages/auth/password/email').then(m => m.default || m)
 const PasswordReset = () => import('~/pages/auth/password/reset').then(m => m.default || m)
 const NotFound = () => import('~/pages/errors/404').then(m => m.default || m)
+const Test = () => import('~/pages/test').then(m => m.default || m)
 
 const Home = () => import('~/pages/home').then(m => m.default || m)
 const Settings = () => import('~/pages/settings/index').then(m => m.default || m)
@@ -14,6 +15,7 @@ const Catalogue = () => import('~/pages/catalogue').then(m => m.default || m)
 
 export default [
   { path: '/', name: 'welcome', component: Welcome },
+  { path: '/test', name: 'test', component: Test },
 
   { path: '/login', name: 'login', component: Login },
   { path: '/register', name: 'register', component: Register },
@@ -29,6 +31,7 @@ export default [
       { path: 'password', name: 'settings.password', component: SettingsPassword }
     ] },
     { path: '/catalogue', name: 'catalogue', component: Catalogue },
+
 
   { path: '*', component: NotFound }
 ]
