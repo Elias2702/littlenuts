@@ -1,7 +1,7 @@
 <template>
   <nav class="navbar navbar-expand-lg navbar-light bg-white">
     <div class="container">
-      <router-link :to="{ name: user ? 'home' : 'catalogue' }" class="navbar-brand">
+      <router-link :to="{ name: user ? 'home' : 'movies' }" class="navbar-brand">
         {{ appName }}
       </router-link>
 
@@ -13,8 +13,8 @@
         <ul class="navbar-nav">
           <locale-dropdown/>
           <li class="nav-item">
-            <router-link :to="{ name: 'catalogue' }" class="nav-link" active-class="active">
-              {{ $t('catalogue') }}
+            <router-link :to="{ name: 'movies' }" class="nav-link" active-class="active">
+              {{ $t('movies') }}
             </router-link>
           </li>
           <li class="nav-item">

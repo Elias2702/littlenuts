@@ -2,12 +2,20 @@
     <div class="main-layout">
         <navbar/>
 
-        <div class="searchResult">
+        <h1>FUCK VUE.JS</h1>
+
+        <div v-if="searching = true" class="searchResult">
             <div  v-for="movie in filteredMovie" :key="movie.id" class="singleMovie">
 
                 <h3>{{ movie.title }}</h3>
                 
             </div>
+
+        </div>
+
+        <div v-else>
+
+            
 
         </div>
 
