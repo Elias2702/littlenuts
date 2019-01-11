@@ -32,9 +32,19 @@ class SPAController extends Controller
         return Actor::all();
     }
 
+    public function showActorDetails($id)
+    {
+        return Actor::with('movies')->find($id);
+    }
+
     public function showMovies()
     {
         return Movie::all();
+    }
+
+    public function showMovieDetails($id)
+    {
+        return Movie::find($id);
     }
 
     public function getWatchList()
