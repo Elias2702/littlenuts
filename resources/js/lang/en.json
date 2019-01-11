@@ -1,4 +1,6 @@
 {
+  "account_type": "Account Type",
+  "account": "Account",
   "ok": "Ok",
   "cancel": "Cancel",
   "error_alert_title": "Oops...",
@@ -24,12 +26,16 @@
   "send_password_reset_link": "Send Password Reset Link",
   "settings": "Settings",
   "profile": "Profile",
-  "your_info": "Your Info",
-  "info_updated": "Your info has been updated!",
+  "your_info": "Your Precious Info",
+  "your_account": "Your Awesome Account",
+  "info_updated": "Great! Your info has been updated.",
   "update": "Update",
   "your_password": "Your Password",
   "password_updated": "Your password has been updated!",
   "new_password": "New Password",
   "login_with": "Login with",
-  "register_with": "Register with"
+  "register_with": "Register with",
+
+  "catalogue": "Catalogue",
+  "actors": "Actors"
 }
