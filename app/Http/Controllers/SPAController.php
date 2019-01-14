@@ -61,4 +61,34 @@ class SPAController extends Controller
     {
         return Auth::user()->starredMovies()->get();
     }
+
+    public function addToWatchList($id)
+    {
+        return Auth::user()->addToWatchList($id);
+    }
+
+    public function addToWatchedList($id)
+    {
+        return Auth::user()->addToWatchedList($id);
+    }
+
+    public function addToStarredList($id)
+    {
+        return Auth::user()->addToStarredList($id);
+    }
+
+    public function removeFromWatchList($id)
+    {
+        return Auth::user()->removeFromWatchList($id);
+    }
+
+    public function removeFromWatchedList($id)
+    {
+        return Auth::user()->removeFromWatchedList($id);
+    }
+
+    public function removeFromStarredList($id)
+    {
+        return Auth::user()->removeFromStarredList($id);
+    }
 }
