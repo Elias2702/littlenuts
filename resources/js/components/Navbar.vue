@@ -1,8 +1,9 @@
 <template>
-  <nav class="navbar navbar-expand-lg navbar-light bg-white">
+  <nav class="navbar navbar-expand-lg navbar-light">
     <div class="container">
-      <router-link :to="{ name: user ? 'home' : 'movies' }" class="navbar-brand">
-        {{ appName }}
+      
+      <router-link :to="{ name: user ? 'home' : 'movies' }" class="navbar-brand text-white">
+        <img src='assets/images/logo_white.svg' alt="LittleNuts" width="90">
       </router-link>
 
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false">
@@ -13,12 +14,12 @@
         <ul class="navbar-nav">
           <locale-dropdown/>
           <li class="nav-item">
-            <router-link :to="{ name: 'movies' }" class="nav-link" active-class="active">
+            <router-link :to="{ name: 'movies' }" class="nav-link text-white" active-class="active">
               {{ $t('movies') }}
             </router-link>
           </li>
           <li class="nav-item">
-            <router-link :to="{ name: 'actors' }" class="nav-link" active-class="active">
+            <router-link :to="{ name: 'actors' }" class="nav-link text-white" active-class="active">
               {{ $t('actors') }}
             </router-link>
           </li>
@@ -48,12 +49,12 @@
           <!-- Guest -->
           <template v-else>
             <li class="nav-item">
-              <router-link :to="{ name: 'login' }" class="nav-link" active-class="active">
+              <router-link :to="{ name: 'login' }" class="nav-link text-white" active-class="active">
                 {{ $t('login') }}
               </router-link>
             </li>
             <li class="nav-item">
-              <router-link :to="{ name: 'register' }" class="nav-link" active-class="active">
+              <router-link :to="{ name: 'register' }" class="nav-link text-white" active-class="active">
                 {{ $t('register') }}
               </router-link>
             </li>
