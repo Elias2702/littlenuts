@@ -1,0 +1,29 @@
+@font-face {
+    font-family: 'Dosis';
+    src: url('/assets/fonts/TerminalDosis-Light.ttf');
+    }
+
+body {
+    background-color: #343a40;
+}
+
+.navbar {
+    color: white;
+    text-transform: uppercase;
+    border-bottom: 4px solid #2796C6;
+    font-family: 'Dosis', Impact, Charcoal, sans-serif;
+    font-weight: lighter;
+    font-size: 1.3em;
+}
+
+.navbar a:hover {
+    color : #2796C6;
+}
+
+.errorMessage a {
+    color: white;
+}
+
+a:hover {
+    color: #2796C6;
+}
