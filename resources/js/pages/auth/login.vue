@@ -1,52 +1,81 @@
 <template>
   <div class="row">
+    <!-- Explanatory (dissmissable) message -->
     <div class="col-lg-8 m-auto">
-      <card :title="$t('login')">
-        <form @submit.prevent="login" @keydown="form.onKeydown($event)">
-          <!-- Email -->
-          <div class="form-group row">
-            <label class="col-md-3 col-form-label text-md-right">{{ $t('email') }}</label>
-            <div class="col-md-7">
-              <input v-model="form.email" :class="{ 'is-invalid': form.errors.has('email') }" class="form-control" type="email" name="email">
-              <has-error :form="form" field="email"/>
-            </div>
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <h4 class="alert-heading">{{ $t('littlenuts all access') }}</h4>
+            <p><strong>You do not need to be logged in to take a look at our awesome movie and actor catalogues!</strong><br>If you have a Guest account, you can enjoy our 6-month free trial. After that, you will either need to upgrade to Premium membership, or keep your Guest account and find a Premium person to enroll you as one of their guest. More info in the Account settings section.</p>
+            <hr>
+            <p class="mb-0">If you do not have an account, register for free!</p>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+
+      <card>
+          <!-- Card Navbar -->
+          <div class="card-header">
+              <ul class="nav nav-tabs card-header-tabs">
+                <li class="nav-item">
+                  <a class="nav-link btn"  @click="islogin=true" :class="{active:islogin}">{{ $t('login') }}</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link btn" @click="islogin=false" :class="{active:!islogin}">{{ $t('register') }}</a>
+                </li>
+              </ul>
           </div>
 
-          <!-- Password -->
-          <div class="form-group row">
-            <label class="col-md-3 col-form-label text-md-right">{{ $t('password') }}</label>
-            <div class="col-md-7">
-              <input v-model="form.password" :class="{ 'is-invalid': form.errors.has('password') }" class="form-control" type="password" name="password">
-              <has-error :form="form" field="password"/>
+            <!-- Login Form -->
+          <form v-if="islogin"  @submit.prevent="login" @keydown="form.onKeydown($event)" style="margin-top: 30px;">
+            <!-- Email -->
+            <div class="form-group row">
+              <label class="col-md-3 col-form-label text-md-right">{{ $t('email') }}</label>
+              <div class="col-md-7">
+                <input v-model="form.email" :class="{ 'is-invalid': form.errors.has('email') }" class="form-control" type="email" name="email">
+                <has-error :form="form" field="email"/>
+              </div>
             </div>
-          </div>
 
-          <!-- Remember Me -->
-          <div class="form-group row">
-            <div class="col-md-3"/>
-            <div class="col-md-7 d-flex">
-              <checkbox v-model="remember" name="remember">
-                {{ $t('remember_me') }}
-              </checkbox>
-
-              <router-link :to="{ name: 'password.request' }" class="small ml-auto my-auto">
-                {{ $t('forgot_password') }}
-              </router-link>
+            <!-- Password -->
+            <div class="form-group row">
+              <label class="col-md-3 col-form-label text-md-right">{{ $t('password') }}</label>
+              <div class="col-md-7">
+                <input v-model="form.password" :class="{ 'is-invalid': form.errors.has('password') }" class="form-control" type="password" name="password">
+                <has-error :form="form" field="password"/>
+              </div>
             </div>
-          </div>
 
-          <div class="form-group row">
-            <div class="col-md-7 offset-md-3 d-flex">
-              <!-- Submit Button -->
-              <v-button :loading="form.busy">
-                {{ $t('login') }}
-              </v-button>
+            <!-- Remember Me -->
+            <div class="form-group row">
+              <div class="col-md-3"/>
+              <div class="col-md-7 d-flex">
+                <checkbox v-model="remember" name="remember">
+                  {{ $t('remember_me') }}
+                </checkbox>
 
-              <!-- GitHub Login Button -->
-              <login-with-github/>
+                <router-link :to="{ name: 'password.request' }" class="small ml-auto my-auto">
+                  {{ $t('forgot_password') }}
+                </router-link>
+              </div>
             </div>
-          </div>
-        </form>
+
+            <div class="form-group row">
+              <div class="col-md-7 offset-md-3 d-flex">
+                <!-- Submit Button -->
+                <v-button :loading="form.busy">
+                  {{ $t('login') }}
+                </v-button>
+
+                <!-- GitHub Login Button -->
+                <login-with-github/>
+              </div>
+            </div>
+          </form>
+
+          <form v-else=""  @submit.prevent="register" @keydown="form.onKeydown($event)" style="margin-top: 30px;">
+              Register
+              <!-- <Register-Form></Register-Form> -->
+          </form>
       </card>
     </div>
   </div>
@@ -72,7 +101,8 @@ export default {
       email: '',
       password: ''
     }),
-    remember: false
+    remember: false,
+    islogin: true
   }),
 
   methods: {
