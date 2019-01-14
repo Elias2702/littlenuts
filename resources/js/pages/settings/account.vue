@@ -1,14 +1,17 @@
 <template>
   <card :title="$t('your_account')">
+      <form>
       <div class="form-group row">
-        <p>Change your Littlenuts account type: </p>
-        <!--  La checkbox updatera le type de compte de l'utilisateur. Compte Premium (is_premium = 1) ou Compte Guest (is_premium = 0)-->
-        <!-- {{ accountType }} est actif et va prendre dans la DB le type de compte de l'utilisateur authentifié -->
-        <div class="custom-control custom-switch">
-            <input type="checkbox" class="custom-control-input" id="customSwitch1">
+        <div class="custom-control custom-switch" style="margin-left: 10px">
             <label class="custom-control-label" for="customSwitch1">You have a {{ accountType }} account.</label>
+            <input type="checkbox" class="custom-control-input" v-model="is_premium">
+            <v-switch
+                :label="`Switch 1: ${is_premium.toString()}`"
+                v-model="is_premium">
+            </v-switch>
         </div>
       </div>
+      </form>
   </card>
 </template>
 
@@ -25,7 +28,10 @@ export default {
 
   data: () => ({
     is_premium: '',
-    accountType: ''
+    accountType: '',
+    form: new Form({
+      is_premium: ''
+    })
   }),
 
   computed: mapGetters({
@@ -34,6 +40,7 @@ export default {
 
   created () {
     this.is_premium = this.user.is_premium;
+    this.form.is_premium = this.user.is_premium;
   },
 
   mounted () {
