@@ -1,18 +1,16 @@
 <template>
-  <card :title="$t('your_account')">
+  <div class="card">
+    <div class="card-header">{{ $t('your_account' )}}</div>
+    <div class="card-body">
       <form>
-      <div class="form-group row">
-        <div class="custom-control custom-switch" style="margin-left: 10px">
-            <label class="custom-control-label" for="customSwitch1">You have a {{ accountType }} account.</label>
-            <input type="checkbox" class="custom-control-input" v-model="is_premium">
-            <v-switch
-                :label="`Switch 1: ${is_premium.toString()}`"
-                v-model="is_premium">
-            </v-switch>
-        </div>
-      </div>
+          <div class="form-check">
+              <input type="checkbox" v-model="form.is_premium" name="is_premium" v-on:change="update">
+              <label for="is_premium">You have a {{ accountTyper( form.is_premium ) }} account.</label>
+          </div>
+          <alert-success :form="form" :message="$t('info_updated')"/>
       </form>
-  </card>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -27,7 +25,6 @@ export default {
   },
 
   data: () => ({
-    is_premium: '',
     accountType: '',
     form: new Form({
       is_premium: ''
@@ -39,30 +36,31 @@ export default {
   }),
 
   created () {
-    this.is_premium = this.user.is_premium;
     this.form.is_premium = this.user.is_premium;
   },
 
-  mounted () {
-    this.accountTyper ()
-  },
-
   methods: {
-   accountTyper: function () {
+   accountTyper: function ( value ) {
         let accountType = ''
-        if (this.is_premium == 1) {
+        if (value == 1) {
             accountType = 'Premium'
         } else {
             accountType = 'Guest'
         }
-        this.accountType = accountType;
+        return accountType;
     },
 
     update: async function () {
-      const { data } = await this.form.patch('/api/settings/profile')
+      const { data } = await this.form.patch('/api/settings/account')
 
       this.$store.dispatch('auth/updateUser', { user: data })
     }
   }
 }
 </script>
+
+<style scoped>
+body {
+    position: absolute;
+}
+</style>
