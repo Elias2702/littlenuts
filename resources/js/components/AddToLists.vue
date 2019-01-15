@@ -2,15 +2,15 @@
   <div class="btn-group-vertical btn-group-sm" role="group">
     <button
       class="btn"
-      @click="addToWatchList(movieId)"
+      @click="setToWatchList(movieId)"
     >{{ watchBtn ? 'Add to' : 'Remove from'}} Watch List</button>
     <button
       class="btn"
-      @click="addToWatchedList(movieId)"
+      @click="setToWatchedList(movieId)"
     >{{ watchedBtn ? 'Add to' : 'Remove from'}} Watched List</button>
     <button
       class="btn"
-      @click="addToStarredList(movieId)"
+      @click="setToStarredList(movieId)"
     >{{ starredBtn ? 'Add to' : 'Remove from'}} Starred List</button>
   </div>
 </template>
@@ -34,23 +34,26 @@ export default {
 
   methods: {
     setToWatchList: function(id) {
-      if (this.watchBtn) {
-        axios.put(`/api/watchlist/${id}`).then(response => {});
-      }
+      this.watchBtn
+        ? axios.put(`/api/watchlist/${id}`).then(response => {})
+        : axios.delete(`/api/watchlist/${id}`).then(response => {});
+      
       this.watchBtn = !this.watchBtn;
     },
 
     setToWatchedList: function(id) {
-      if (this.watchedBtn) {
-        axios.put(`/api/watchedlist/${id}`).then(response => {});
-      }
+      this.watchedBtn
+        ? axios.put(`/api/watchedlist/${id}`).then(response => {})
+        : axios.delete(`/api/watchedlist/${id}`).then(response => {});
+
       this.watchedBtn = !this.watchedBtn;
     },
 
     setToStarredList: function(id) {
-      if (this.starredBtn) {
-        axios.put(`/api/starredlist/${id}`).then(response => {});
-      }
+      this.starredBtn
+        ? axios.put(`/api/starredlist/${id}`).then(response => {})
+        : axios.delete(`/api/starredlist/${id}`).then(response => {});
+
       this.starredBtn = !this.starredBtn;
     }
   }
