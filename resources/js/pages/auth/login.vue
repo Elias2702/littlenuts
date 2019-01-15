@@ -2,7 +2,7 @@
   <div class="row">
     <!-- Explanatory (dissmissable) message -->
     <div class="col-lg-8 m-auto">
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
             <h4 class="alert-heading">{{ $t('littlenuts all access') }}</h4>
             <p><strong>You do not need to be logged in to take a look at our awesome movie and actor catalogues!</strong><br>If you have a Guest account, you can enjoy our 6-month free trial. After that, you will either need to upgrade to Premium membership, or keep your Guest account and find a Premium person to enroll you as one of their guest. More info in the Account settings section.</p>
             <hr>
@@ -12,10 +12,10 @@
             </button>
         </div>
 
-      <card>
+      <card class="text-white bg-dark">
           <!-- Card Navbar -->
-          <div class="card-header">
-              <ul class="nav nav-tabs card-header-tabs">
+          <div class="card-header text-white bg-dark">
+              <ul class="nav nav-pills card-header-tabs justify-content-center">
                 <li class="nav-item">
                   <a class="nav-link btn"  @click="islogin=true" :class="{active:islogin}">{{ $t('login') }}</a>
                 </li>
@@ -72,10 +72,10 @@
             </div>
           </form>
 
-          <form v-else=""  @submit.prevent="register" @keydown="form.onKeydown($event)" style="margin-top: 30px;">
-              Register
-              <!-- <Register-Form></Register-Form> -->
-          </form>
+          <div v-else="">
+              <register></register>
+          </div>
+
       </card>
     </div>
   </div>

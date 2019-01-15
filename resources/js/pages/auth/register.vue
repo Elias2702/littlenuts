@@ -1,7 +1,4 @@
 <template>
-  <div class="row">
-    <div class="col-lg-8 m-auto">
-      <card :title="$t('register')">
         <form @submit.prevent="register" @keydown="form.onKeydown($event)">
           <!-- Firstname and Lastname -->
           <div class="form-group row">
@@ -58,9 +55,6 @@
             </div>
           </div>
         </form>
-      </card>
-    </div>
-  </div>
 </template>
 
 <script>
@@ -68,7 +62,7 @@ import Form from 'vform'
 import LoginWithGithub from '~/components/LoginWithGithub'
 
 export default {
-  name: 'Register-Form',
+  name: 'Register',
   middleware: 'guest',
 
   components: {

@@ -1,9 +1,9 @@
 <template>
   <nav class="navbar navbar-expand-lg navbar-light">
     <div class="container">
-      
+
       <router-link :to="{ name: user ? 'home' : 'movies' }" class="navbar-brand text-white">
-        <img src='assets/images/logo_white.svg' alt="LittleNuts" width="90">
+        <img src='/assets/images/logo_white.svg' alt="LittleNuts" width="90">
       </router-link>
 
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false">
@@ -30,7 +30,7 @@
           <li v-if="user" class="nav-item dropdown">
             <a class="nav-link dropdown-toggle text-dark"
                href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <fa icon="user-cog"/>
+              <fa icon="user-cog" style="color: white;"/>
               {{ user.name }}
             </a>
             <div class="dropdown-menu">
