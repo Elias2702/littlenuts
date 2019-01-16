@@ -1,5 +1,5 @@
 <template>
-        <form @submit.prevent="register" @keydown="form.onKeydown($event)">
+        <form @submit.prevent="register" @keydown="form.onKeydown($event)" style="margin-top: 30px">
           <!-- Firstname and Lastname -->
           <div class="form-group row">
             <label class="col-md-3 col-form-label text-md-right">{{ $t('firstname') }}</label>

@@ -16,6 +16,8 @@
           <p class="card-text">
             <small class="text-muted">{{ movie.release_date }}</small>
           </p>
+          <button type="button" class="btn btn-light" @click="addToWatchList(movie.id)">Watch later</button>
+          <!-- Au clic du bouton, récupérer la donnée current movie id et la passer dans data, pour quelle puisse être envoyée lors de la requête axios Post -->
         </div>
       </div>
     </div>
@@ -42,6 +44,14 @@ export default {
     axios.get("/api/movies").then(response => {
       this.movies = response.data;
     });
-  }
+  },
+
+  methods: {
+    addToWatchList: function (id) {
+        axios.post("/api/addToWatchList", {
+          movie_id: id
+        });
+    },
+  },
 };
 </script>

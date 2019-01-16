@@ -42,7 +42,8 @@ export default {
           icon: 'lock',
           name: this.$t('password'),
           route: 'settings.password'
-        }
+        },
+        
       ]
     }
   }

@@ -28,6 +28,8 @@ Route::group(['middleware' => 'auth:api'], function () {
         return $request->user();
     });
 
+    Route::post('addToWatchlist', 'SPAController@addToWatchList');
+
     Route::patch('settings/profile', 'Settings\ProfileController@update');
     Route::patch('settings/account', 'Settings\AccountController@update');
     Route::patch('settings/password', 'Settings\PasswordController@update');

@@ -61,4 +61,8 @@ class SPAController extends Controller
     {
         return Auth::user()->starredMovies()->get();
     }
+    public function addToWatchList(Request $request)
+    {
+        return Auth::user()->addToWatchList($request->movie_id);
+    }
 }
