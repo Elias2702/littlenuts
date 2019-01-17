@@ -11,6 +11,10 @@ npm-debug.log
 yarn-error.log
 .env
 /public/js
+<<<<<<< HEAD
 # /public/css
+=======
+#/public/css
+>>>>>>> 8a90c8ddf1a9f74e789c777fa8b114ce3cbe1da8
 /public/mix-manifest.json
 phpunit.dusk.xml

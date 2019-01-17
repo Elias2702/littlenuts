@@ -1,15 +1,16 @@
 <template>
-  <card :title="$t('your_account')">
-      <div class="form-group row">
-        <p>Change your Littlenuts account type: </p>
-        <!--  La checkbox updatera le type de compte de l'utilisateur. Compte Premium (is_premium = 1) ou Compte Guest (is_premium = 0)-->
-        <!-- {{ accountType }} est actif et va prendre dans la DB le type de compte de l'utilisateur authentifié -->
-        <div class="custom-control custom-switch">
-            <input type="checkbox" class="custom-control-input" id="customSwitch1">
-            <label class="custom-control-label" for="customSwitch1">You have a {{ accountType }} account.</label>
-        </div>
-      </div>
-  </card>
+  <div class="card">
+    <div class="card-header">{{ $t('your_account' )}}</div>
+    <div class="card-body">
+      <form>
+          <div class="form-check">
+              <input type="checkbox" v-model="form.is_premium" name="is_premium" v-on:change="update">
+              <label for="is_premium">You have a {{ accountTyper( form.is_premium ) }} account.</label>
+          </div>
+          <alert-success :form="form" :message="$t('info_updated')"/>
+      </form>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -24,8 +25,10 @@ export default {
   },
 
   data: () => ({
-    is_premium: '',
-    accountType: ''
+    accountType: '',
+    form: new Form({
+      is_premium: ''
+    })
   }),
 
   computed: mapGetters({
@@ -33,29 +36,31 @@ export default {
   }),
 
   created () {
-    this.is_premium = this.user.is_premium;
-  },
-
-  mounted () {
-    this.accountTyper ()
+    this.form.is_premium = this.user.is_premium;
   },
 
   methods: {
-   accountTyper: function () {
+   accountTyper: function ( value ) {
         let accountType = ''
-        if (this.is_premium == 1) {
+        if (value == 1) {
             accountType = 'Premium'
         } else {
             accountType = 'Guest'
         }
-        this.accountType = accountType;
+        return accountType;
     },
 
     update: async function () {
-      const { data } = await this.form.patch('/api/settings/profile')
+      const { data } = await this.form.patch('/api/settings/account')
 
       this.$store.dispatch('auth/updateUser', { user: data })
     }
   }
 }
 </script>
+
+<style scoped>
+body {
+    position: absolute;
+}
+</style>

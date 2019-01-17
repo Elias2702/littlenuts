@@ -16,6 +16,7 @@ const Actors = () => import('~/pages/actors').then(m => m.default || m)
 const Actor = () => import('~/pages/actor').then(m => m.default || m)
 
 export default [
+  { path: '/', name: 'home', component: Home },
   { path: '/movies', name: 'movies', component: Movies },
   { path: '/actors', name: 'actors', component: Actors },
 
