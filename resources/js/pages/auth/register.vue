@@ -1,7 +1,7 @@
 <template>
         <form @submit.prevent="register" @keydown="form.onKeydown($event)" class="text-white">
           <!-- Firstname and Lastname -->
-          <div class="form-group row">
+          <div class="form-group row" id="register-form">
             <label class="col-md-3 col-form-label text-md-right">{{ $t('firstname') }}</label>
             <div class="col-md-7">
               <input v-model="form.firstname" :class="{ 'is-invalid': form.errors.has('firstname') }" class="form-control" type="text" name="firstname">
