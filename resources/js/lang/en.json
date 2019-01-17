@@ -2,6 +2,7 @@
   "account_type": "Account Type",
   "account": "Account",
   "ok": "Ok",
+  "catalogue": "Catalogue",
   "cancel": "Cancel",
   "error_alert_title": "Oops...",
   "error_alert_text": "Something went wrong! Please try again.",

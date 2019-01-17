@@ -12,15 +12,14 @@
 
       <div id="navbarToggler" class="collapse navbar-collapse">
         <ul class="navbar-nav">
-          <locale-dropdown/>
           <li class="nav-item">
             <router-link :to="{ name: 'movies' }" class="nav-link text-white" active-class="active">
-              {{ $t('movies') }}
+              <fa icon="film" style="color: white;"/> {{ $t('catalogue') }}
             </router-link>
           </li>
           <li class="nav-item">
             <router-link :to="{ name: 'actors' }" class="nav-link text-white" active-class="active">
-              {{ $t('actors') }}
+              <fa icon="users" style="color: white;"/> {{ $t('actors') }}
             </router-link>
           </li>
           <!--Béné-->
@@ -32,10 +31,10 @@
         <ul class="navbar-nav ml-auto">
           <!-- Authenticated -->
           <li v-if="user" class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle text-white"
+            <a class="nav-link dropdown-toggle text-light"
                href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <fa icon="user-cog" style="color: white;"/>
-              {{ user.name }}
+              {{ user.firstname }}
             </a>
             <div class="dropdown-menu">
               <router-link :to="{ name: 'settings.profile' }" class="dropdown-item pl-3">
