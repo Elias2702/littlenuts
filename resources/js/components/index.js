@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Card from './Card'
+import Register from '../pages/auth/register'
 import Child from './Child'
 import Button from './Button'
 import Checkbox from './Checkbox'
@@ -13,7 +14,7 @@ import { HasError, AlertError, AlertSuccess } from 'vform'
   Child,
   Button,
   Checkbox,
-  // Register,
+  Register,
   HasError,
   AlertError,
   AlertSuccess

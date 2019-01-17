@@ -10,7 +10,7 @@ body {
 .navbar {
     color: white;
     text-transform: uppercase;
-    border-bottom: 4px solid #2796C6;
+    border-bottom: 1px solid white;
     font-family: 'Dosis', Impact, Charcoal, sans-serif;
     font-weight: lighter;
     font-size: 1.3em;

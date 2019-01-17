@@ -84,7 +84,7 @@
 <script>
 import Form from 'vform'
 import LoginWithGithub from '~/components/LoginWithGithub'
-
+import Register from './register'
 export default {
   middleware: 'guest',
 
