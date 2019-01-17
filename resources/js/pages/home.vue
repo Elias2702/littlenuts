@@ -41,6 +41,7 @@
             >
               <router-link :to="{ name: 'movie', params: { id: movie.id }}">{{ movie.title }}</router-link>
             </h5>
+            <add-to-lists :movie="movie"></add-to-lists>
             <p
               class="card-text"
               style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;"
@@ -79,19 +80,19 @@ export default {
   methods: {
     watchList: function() {
       axios.get("api/watchlist").then(response => {
-        this.movies = response.data;
+        this.movies = response.data.data;
       });
     },
 
     watchedList: function() {
       axios.get("api/watchedlist").then(response => {
-        this.movies = response.data;
+        this.movies = response.data.data;
       });
     },
 
     starredList: function() {
       axios.get("api/starredlist").then(response => {
-        this.movies = response.data;
+        this.movies = response.data.data;
       });
     }
   }

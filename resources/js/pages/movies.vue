@@ -1,7 +1,7 @@
 <template>
   <card :title="$t('movies')" class="mb-4">
-    <div class="row">
-      <div v-for="movie in movies" :key="movie.id" class="col-lg-3 col-md-4 col-6">
+    <div class="row mb-2">
+      <div v-for="movie in movies.data" :key="movie.id" class="col-lg-3 col-md-4 col-6">
         <div class="card-body text-center">
           <router-link :to="{ name: 'movie', params: { id: movie.id }}">
             <img :src="movie.cover_path" class="img-fluid mb-3">
@@ -14,10 +14,15 @@
             class="card-text"
             style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;"
           >{{ movie.synopsis }}</p>
-          <p class="card-text">
+          <p class="card-text">/movies
             <small class="text-muted">{{ movie.release_date }}</small>
           </p>
         </div>
+      </div>
+    </div>
+    <div class="d-flex mt-2">
+      <div class="mx-auto">
+        <pagination :data="movies" @pagination-change-page="getResults" :limit="2"></pagination>
       </div>
     </div>
   </card>
@@ -35,14 +40,20 @@ export default {
 
   data: () => {
     return {
-      movies: ""
+      movies: {}
     };
   },
 
   created() {
-    axios.get("/api/movies").then(response => {
-      this.movies = response.data.data;
-    });
+    this.getResults();
+  },
+
+  methods: {
+    getResults(page = 1) {
+      axios.get("/api/movies?page=" + page).then(response => {
+        this.movies = response.data;
+      });
+    }
   }
 };
 </script>

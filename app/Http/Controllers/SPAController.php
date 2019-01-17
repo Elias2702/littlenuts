@@ -49,17 +49,17 @@ class SPAController extends Controller
 
     public function getWatchList()
     {
-        return Auth::user()->movies()->get();
+        return Auth::user()->movies()->paginate(24);
     }
 
     public function getWatchedList()
     {
-        return Auth::user()->watchedMovies()->get();
+        return Auth::user()->watchedMovies()->paginate(24);
     }
 
     public function getStarredList()
     {
-        return Auth::user()->starredMovies()->get();
+        return Auth::user()->starredMovies()->paginate(24);
     }
 
     public function addToWatchList($id)
