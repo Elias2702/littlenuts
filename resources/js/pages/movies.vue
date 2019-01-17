@@ -9,6 +9,7 @@
           <h5 class="card-title" style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">
             <router-link :to="{ name: 'movie', params: { id: movie.id }}">{{ movie.title }}</router-link>
           </h5>
+          <add-to-lists :movie="movie"></add-to-lists>
           <p
             class="card-text"
             style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;"
@@ -40,7 +41,7 @@ export default {
 
   created() {
     axios.get("/api/movies").then(response => {
-      this.movies = response.data;
+      this.movies = response.data.data;
     });
   }
 };
