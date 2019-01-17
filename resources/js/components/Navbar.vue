@@ -23,12 +23,16 @@
               {{ $t('actors') }}
             </router-link>
           </li>
+          <!--Béné-->
+          <li class="nav-item">
+            <search></search>
+          </li>
         </ul>
 
         <ul class="navbar-nav ml-auto">
           <!-- Authenticated -->
           <li v-if="user" class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle text-dark"
+            <a class="nav-link dropdown-toggle text-white"
                href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <fa icon="user-cog" style="color: white;"/>
               {{ user.name }}
