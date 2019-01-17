@@ -13,7 +13,7 @@ import { HasError, AlertError, AlertSuccess } from 'vform'
   Child,
   Button,
   Checkbox,
-  Register,
+  // Register,
   HasError,
   AlertError,
   AlertSuccess
