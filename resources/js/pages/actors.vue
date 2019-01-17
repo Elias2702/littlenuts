@@ -35,7 +35,7 @@ export default {
 
   created() {
     axios.get("api/actors").then(response => {
-      this.actors = response.data;
+      this.actors = response.data.data;
     });
   }
 };

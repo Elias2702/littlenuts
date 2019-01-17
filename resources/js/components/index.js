@@ -3,16 +3,17 @@ import Card from './Card'
 import Child from './Child'
 import Button from './Button'
 import Checkbox from './Checkbox'
-import Register from '../pages/auth/register'
+import AddToLists from './AddToLists'
 import { HasError, AlertError, AlertSuccess } from 'vform'
 
-// Components that are registered globaly.
+// Components that are registered globally.
 [
+  AddToLists,
   Card,
   Child,
   Button,
   Checkbox,
-  Register,
+  // Register,
   HasError,
   AlertError,
   AlertSuccess

@@ -1,6 +1,6 @@
 <template>
   <card :title="$t('your_info')">
-    <form @submit.prevent="update" @keydown="form.onKeydown($event)">
+    <form @submit.prevent="update" @keydown="form.onKeydown($event)" class="text-white">
       <alert-success :form="form" :message="$t('info_updated')"/>
 
       <!-- Firstname and Lastname -->

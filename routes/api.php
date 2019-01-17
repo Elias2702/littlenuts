@@ -35,6 +35,18 @@ Route::group(['middleware' => 'auth:api'], function () {
     Route::get('watchlist', 'SPAController@getWatchList');
     Route::get('watchedlist', 'SPAController@getWatchedList');
     Route::get('starredlist', 'SPAController@getStarredList');
+
+    Route::put('watchlist/{id}', 'SPAController@addToWatchList');
+    Route::put('watchedlist/{id}', 'SPAController@addToWatchedList');
+    Route::put('starredlist/{id}', 'SPAController@addToStarredList');
+
+    Route::delete('watchlist/{id}', 'SPAController@removeFromWatchList');
+    Route::delete('watchedlist/{id}', 'SPAController@removeFromWatchedList');
+    Route::delete('starredlist/{id}', 'SPAController@removeFromStarredList');
+
+    Route::get('hasinwatchlist/{id}', 'SPAController@hasInWatchList');
+    Route::get('hasinwatchedlist/{id}', 'SPAController@hasInWatchedList');
+    Route::get('hasinstarredlist/{id}', 'SPAController@hasInStarredList');
 });
 
 Route::group(['middleware' => 'guest:api'], function () {
