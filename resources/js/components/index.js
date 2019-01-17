@@ -19,5 +19,7 @@ import { HasError, AlertError, AlertSuccess } from 'vform'
   AlertError,
   AlertSuccess
 ].forEach(Component => {
-  Vue.component(Component.name, Component)
+  Vue.component(Component.name, Component);
 })
+
+Vue.component('pagination', require('laravel-vue-pagination'));
