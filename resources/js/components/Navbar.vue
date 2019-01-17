@@ -22,6 +22,10 @@
               <fa icon="users" style="color: white;"/> {{ $t('actors') }}
             </router-link>
           </li>
+          <!--Béné-->
+          <li class="nav-item">
+            <search></search>
+          </li>
         </ul>
 
         <ul class="navbar-nav ml-auto">

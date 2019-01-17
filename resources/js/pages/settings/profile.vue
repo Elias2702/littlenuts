@@ -1,10 +1,10 @@
 <template>
   <card :title="$t('your_info')">
-    <form @submit.prevent="update" @keydown="form.onKeydown($event)">
+    <form @submit.prevent="update" @keydown="form.onKeydown($event)" class="text-white">
       <alert-success :form="form" :message="$t('info_updated')"/>
 
       <!-- Firstname and Lastname -->
-      <div class="form-group row">
+      <div class="form-group row" >
         <label class="col-md-3 col-form-label text-md-right">{{ $t('firstname') }}</label>
         <div class="col-md-7">
           <input v-model="form.firstname" :class="{ 'is-invalid': form.errors.has('firstname') }" class="form-control" type="text" name="firstname">
