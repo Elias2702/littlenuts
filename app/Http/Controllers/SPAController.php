@@ -29,7 +29,7 @@ class SPAController extends Controller
 
     public function showActors()
     {
-        return Actor::all();
+        return Actor::paginate(24);
     }
 
     public function showActorDetails($id)
@@ -39,7 +39,7 @@ class SPAController extends Controller
 
     public function showMovies()
     {
-        return Movie::all();
+        return Movie::with('users')->paginate(24);
     }
 
     public function showMovieDetails($id)
@@ -90,5 +90,20 @@ class SPAController extends Controller
     public function removeFromStarredList($id)
     {
         return Auth::user()->removeFromStarredList($id);
+    }
+
+    public function hasInWatchList($id)
+    {
+        return Auth::user()->hasInWatchList($id);
+    }
+
+    public function hasInWatchedList($id)
+    {
+        return Auth::user()->hasInWatchedList($id);
+    }
+
+    public function hasInStarredList($id)
+    {
+        return Auth::user()->hasInStarredList($id);
     }
 }
