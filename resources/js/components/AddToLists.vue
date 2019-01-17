@@ -1,5 +1,5 @@
 <template>
-  <div v-if="user" class="btn-group-vertical btn-group-sm" role="group">
+  <div v-if="user" class="btn-group-vertical btn-group-sm mb-2" role="group">
     <button
       class="btn btn-info"
       @click="setToWatchList(movie.id)"
@@ -32,20 +32,15 @@ export default {
     };
   },
 
-  created() {
-    isInWatchList = this.movie.users === undefined || this.movie.users == 0 ||
-                    this.movie.users[this.user.id].pivot.is_watched;
-
-    isInWatchedList = this.movie.users === undefined || this.movie.users == 0 ||
-                      this.movie.users[this.user.id].pivot.is_watched;
-
-    isInStarredList = this.movie.users === undefined || this.movie.users == 0 ||
-                      this.movie.users[this.user.id].pivot.is_starred;
-  },
-
   computed: mapGetters({
     user: "auth/user"
   }),
+
+  created() {
+    this.watchBtn = !this.isInWatchList();
+    this.watchedBtn = !this.isInWatchedList();
+    this.starredBtn = !this.isInStarredList();
+  },
 
   methods: {
     setToWatchList: function(id) {
@@ -70,26 +65,35 @@ export default {
         : axios.delete(`/api/starredlist/${id}`).then(response => {});
 
       this.starredBtn = !this.starredBtn;
+    },
+
+    isInWatchList: function() {
+      return this.movie.users.length > 0 ? true : false;
+    },
+
+    isInWatchedList: function() {
+      try {
+        for (let i = 0; i <= this.movie.users.length; i++) {
+          if (this.movie.users[i].id == this.user.id) {
+            return this.movie.users[i].pivot.is_watched == 1;
+          }
+        }
+      } catch (e) {
+        return false;
+      }
+    },
+
+    isInStarredList: function() {
+      try {
+        for (let i = 0; i <= this.movie.users.length; i++) {
+          if (this.movie.users[i].id == this.user.id) {
+            return this.movie.users[i].pivot.is_starred == 1;
+          }
+        }
+      } catch (e) {
+        return false;
+      }
     }
-
-    // hasInWatchList: function(id) {
-    //   axios.get(`/api/hasinwatchlist/${id}`).then(response => {
-    //     console.log(response);
-    //     this.watchBtn = response.data;
-    //   });
-    // },
-
-    // hasInWatchedList: function(id) {
-    //   axios.get(`/api/hasinwatchedlist/${id}`).then(response => {
-    //     this.watchedBtn = response.data;
-    //   });
-    // },
-
-    // hasInStarredList: function(id) {
-    //   axios.get(`/api/hasinstarredlist/${id}`).then(response => {
-    //     this.starredBtn = response.data;
-    //   });
-    // }
   }
 };
 </script>
