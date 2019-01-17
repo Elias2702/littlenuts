@@ -106,4 +106,11 @@ class SPAController extends Controller
     {
         return Auth::user()->hasInStarredList($id);
     }
+
+// Béné
+    public function search(Request $request)
+    {
+        $posts = Post::where('name', $request->keywords)->get();
+        return response()->json($posts);
+    }
 }
