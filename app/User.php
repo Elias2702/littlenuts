@@ -93,6 +93,11 @@ class User extends Authenticatable implements JWTSubject
         return $this->belongsToMany('App\Movie');
     }
 
+    public function unwatchedMovies()
+    {
+        return $this->belongsToMany('App\Movie')->wherePivot('is_watched', false);
+    }
+
     public function starredMovies()
     {
         return $this->belongsToMany('App\Movie')->wherePivot('is_starred', true);

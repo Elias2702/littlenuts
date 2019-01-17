@@ -41,7 +41,6 @@
             >
               <router-link :to="{ name: 'movie', params: { id: movie.id }}">{{ movie.title }}</router-link>
             </h5>
-            <add-to-lists :movie="movie"></add-to-lists>
             <p
               class="card-text"
               style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;"

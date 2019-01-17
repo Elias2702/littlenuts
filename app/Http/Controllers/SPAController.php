@@ -44,12 +44,12 @@ class SPAController extends Controller
 
     public function showMovieDetails($id)
     {
-        return Movie::find($id);
+        return Movie::with('users')->find($id);
     }
 
     public function getWatchList()
     {
-        return Auth::user()->movies()->paginate(24);
+        return Auth::user()->unwatchedMovies()->paginate(24);
     }
 
     public function getWatchedList()

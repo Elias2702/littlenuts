@@ -14,7 +14,7 @@
             class="card-text"
             style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;"
           >{{ movie.synopsis }}</p>
-          <p class="card-text">/movies
+          <p class="card-text">
             <small class="text-muted">{{ movie.release_date }}</small>
           </p>
         </div>

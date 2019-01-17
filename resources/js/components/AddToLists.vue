@@ -36,6 +36,12 @@ export default {
     user: "auth/user"
   }),
 
+  created() {
+    this.watchBtn = !this.isInWatchList();
+    this.watchedBtn = !this.isInWatchedList();
+    this.starredBtn = !this.isInStarredList();
+  },
+
   methods: {
     setToWatchList: function(id) {
       this.watchBtn
@@ -62,7 +68,7 @@ export default {
     },
 
     isInWatchList: function() {
-      return !isInWatchedList();
+      return this.movie.users.length > 0 ? true : false;
     },
 
     isInWatchedList: function() {
@@ -88,12 +94,6 @@ export default {
         return false;
       }
     }
-  },
-
-  created: () => {
-    this.watchBtn = ! this.isInWatchList();
-    this.watchedBtn = ! this.isInWatchedList();
-    this.starredBtn = ! this.isInStarredList();
   }
 };
 </script>
