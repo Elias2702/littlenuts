@@ -3,7 +3,6 @@ import Card from './Card'
 import Register from '../pages/auth/register'
 import Child from './Child'
 import Button from './Button'
-import Search from './Search'
 import Checkbox from './Checkbox'
 import AddToLists from './AddToLists'
 import Search from './Search'
@@ -19,10 +18,7 @@ import { HasError, AlertError, AlertSuccess } from 'vform'
   Checkbox,
   Register,
   Search,
-<<<<<<< HEAD
-=======
   SearchResults,
->>>>>>> 03b46fc2c00626c17225cbc5b03cd7fc602bde52
   HasError,
   AlertError,
   AlertSuccess

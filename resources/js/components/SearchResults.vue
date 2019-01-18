@@ -6,7 +6,7 @@
 <script>
 import axios from "axios";
 export default {
-  name: "Search",
+  name: "SearchResult",
     data() {
         return {
             keywords: null,
@@ -18,7 +18,6 @@ export default {
 
         }
     }
-}
 </script>
 
 <style scoped>
