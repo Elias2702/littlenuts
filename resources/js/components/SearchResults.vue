@@ -1,24 +1,20 @@
 <template>
-    <div>
-    </div>
+  <div></div>
 </template>
 
 <script>
 import axios from "axios";
 export default {
-  name: "Search",
-    data() {
-        return {
-            keywords: null,
-            results: []
-        };
-    },
+  name: "SearchResults",
+  data() {
+    return {
+      keywords: null,
+      results: []
+    };
+  },
 
-    methods: {
-
-        }
-    }
-}
+  methods: {}
+};
 </script>
 
 <style scoped>
