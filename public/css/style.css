@@ -91,3 +91,31 @@ a:hover {
 #movie_card_title {
   text-decoration: none;
 }
+/*Search Bar*/
+.searchbar {
+    margin-top: 5px;
+    border-radius: 10px;
+    margin-left: 10px;
+}
+.inputsearch {
+    padding: 20px;
+    border: 1px solid #6c757d;
+    border-radius: 10px;
+    background-color:#40474e;
+    border-color: #6c757d;
+}
+
+.form-control::placeholder, .form-control {
+    color: white;
+    opacity: 0.8;
+  }
+
+.form-control:focus {
+  color: white;
+  background-color: #505962;
+}
+
+.searchbar button {
+    background-color: #6c757d;
+    border-radius: 0px 10px 10px 0px;
+}

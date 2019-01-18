@@ -1,8 +1,8 @@
 <template>
-        <div>
-            <input class="form-control mr-sm-2" type="search" placeholder="Enter keywords or a title" aria-label="Search" v-model.lazy="keywords" @keyup.enter="fetch()">
-            <button class="btn btn-outline-info my-2 my-sm-0" @click="fetch()">Search for movies</button>
-        </div>
+    <div class="searchbar input-group mb-3">
+        <input class="inputsearch form-control" type="search" placeholder="Search a movie" aria-label="Search" v-model.lazy="keywords" @keyup.enter="fetch()">
+        <button class="btn btn-outline-secondary" @click="fetch()"><fa icon="search" style="color: white;"/></button>
+    </div>
 </template>
 
 <script>
