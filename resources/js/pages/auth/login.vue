@@ -4,7 +4,7 @@
     <div class="col-lg-8 m-auto">
         <div class="alert alert-warning alert-dismissible fade show" role="alert">
             <h4 class="alert-heading">{{ $t('littlenuts all access') }}</h4>
-            <p><strong>You do not need to be logged in to take a look at our awesome movie and actor catalogues!</strong><br>If you have a Guest account, you can enjoy our 6-month free trial. After that, you will either need to upgrade to Premium membership, or keep your Guest account and find a Premium person to enroll you as one of their guest. More info in the Account settings section.</p>
+            <p><strong>You do not need to be logged in to take a look at our awesome movie and actor catalogues!</strong><br>If you have a Guest account, you can enjoy our 6-month free trial. After that, you will either need to upgrade to Premium membership, or keep your Guest account and find a Premium member to enroll you as one of their guest. More info in the Account settings section.</p>
             <hr>
             <p class="mb-0">If you do not have an account, register for free!</p>
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
