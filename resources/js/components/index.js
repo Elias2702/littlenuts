@@ -5,6 +5,8 @@ import Child from './Child'
 import Button from './Button'
 import Checkbox from './Checkbox'
 import AddToLists from './AddToLists'
+import Search from './Search'
+import SearchResults from './SearchResults'
 import { HasError, AlertError, AlertSuccess } from 'vform'
 
 // Components that are registered globally.
@@ -15,6 +17,8 @@ import { HasError, AlertError, AlertSuccess } from 'vform'
   Button,
   Checkbox,
   Register,
+  Search,
+  SearchResults,
   HasError,
   AlertError,
   AlertSuccess

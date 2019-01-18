@@ -2,7 +2,7 @@
   <nav class="navbar navbar-expand-lg navbar-light">
     <div class="container">
 
-      <router-link :to="{ name: user ? 'home' : 'movies' }" class="navbar-brand text-white">
+      <router-link :to="{ name: user ? 'home' : 'login' }" class="navbar-brand text-white">
         <img src='/assets/images/logo_white.svg' alt="LittleNuts" width="90">
       </router-link>
 
@@ -22,7 +22,7 @@
               <fa icon="users" style="color: white;"/> {{ $t('actors') }}
             </router-link>
           </li>
-          <!--Béné-->
+          <!--Guest-->
           <li class="nav-item">
             <search></search>
           </li>

@@ -17,6 +17,7 @@ Route::get('movies/{id}', 'SPAController@showMovieDetails');
 Route::get('actors/{id}', 'SPAController@showActorDetails');
 Route::get('movies', 'SPAController@showMovies');
 Route::get('actors', 'SPAController@showActors');
+Route::get('search', 'SPAController@search');
 
 
 Route::group(['middleware' => 'auth:api'], function () {

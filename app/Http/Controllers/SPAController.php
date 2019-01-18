@@ -110,7 +110,7 @@ class SPAController extends Controller
 // Béné
     public function search(Request $request)
     {
-        $posts = Post::where('name', $request->keywords)->get();
-        return response()->json($posts);
+        $movies = Movie::where('title', 'LIKE', '%'.$request->keywords.'%')->get();
+        return response()->json($movies);
     }
 }
