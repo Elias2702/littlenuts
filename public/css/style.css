@@ -1,0 +1,121 @@
+@font-face {
+    font-family: 'Dosis';
+    src: url('/assets/fonts/TerminalDosis-Light.ttf');
+    }
+
+body {
+    background-color: #343a40;
+}
+
+.navbar {
+    color: white;
+    text-transform: uppercase;
+    border-bottom: 1px solid white;
+    font-family: 'Dosis', Impact, Charcoal, sans-serif;
+    font-weight: lighter;
+    font-size: 1.3em;
+}
+
+.navbar a:hover {
+    color : #2796C6;
+}
+
+.errorMessage a {
+    color: white;
+}
+
+a:hover {
+    color: #2796C6;
+}
+
+.navbar-light .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3e%3cpath stroke='rgba(255, 255, 255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+.navbar-light .navbar-toggler {
+  color: rgba(255, 255, 255, 1);
+  border-color: rgba(0, 0, 0, 0.0);
+}
+
+#register-form {
+  margin-top: 30px;
+}
+
+#movie_card_catalogue {
+  background-color: rgba(255,255,255, 0.15);
+  padding: 0;
+  margin-bottom: 30px;
+  border-radius: 5px;
+}
+
+#movie_card_catalogue:hover {
+  /* background-color: rgba(255,255,255, 0.3); */
+}
+
+#movie_card_catalogue_container:hover {
+  border-width: 10px;
+  border-style: ridge;
+  border-color: rgba(255,255,255, 0);
+}
+
+#movie_card_btn1 {
+  background-color: rgba(52, 58, 64, 0.8);
+  border: none;
+  color: rgba(255,255,255, 1);
+}
+
+#movie_card_btn1:hover {
+  /* font-weight: bold; */
+}
+
+#movie_card_btn2 {
+  background-color: rgba(52, 58, 64, 0.2);
+  border: none;
+  color: rgba(255,255,255, 1);
+}
+
+#movie_card_btn2:hover {
+  /* font-weight: bold; */
+}
+
+#movie_card_btn3 {
+  background-color: rgba(52, 58, 64, 0.8);
+  border: none;
+  color: rgba(255,255,255, 1);
+}
+
+#movie_card_btn3:hover {
+  /* font-weight: bold; */
+}
+
+#movie_card_title {
+  text-decoration: none;
+}
+/*Search Bar*/
+.searchbar {
+    margin-top: 5px;
+    border-radius: 10px;
+    margin-left: 10px;
+}
+.inputsearch {
+    padding: 20px;
+    border: 1px solid #6c757d;
+    border-radius: 10px;
+    background-color:#40474e;
+    border-color: #6c757d;
+}
+
+.form-control::placeholder, .form-control {
+    color: white;
+    opacity: 0.8;
+  }
+
+.form-control:focus {
+  color: white;
+  background-color: #505962;
+}
+
+.searchbar button {
+    background-color: #6c757d;
+    border-radius: 0px 10px 10px 0px;
+}
