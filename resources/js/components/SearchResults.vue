@@ -6,19 +6,15 @@
 <script>
 import axios from "axios";
 export default {
-  name: "Search",
+    name: 'SearchResults',
     data() {
-        return {
-            keywords: null,
-            results: []
-        };
+
     },
 
     methods: {
 
         }
     }
-}
 </script>
 
 <style scoped>
