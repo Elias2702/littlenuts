@@ -1,17 +1,17 @@
 <template>
   <div v-if="user" class="btn-group-vertical btn-group-sm mb-2" role="group">
     <button
-      class="btn btn-info"
+      class="btn btn-info" id="movie_card_btn1"
       @click="setToWatchList(movie.id)"
-    >{{ watchBtn ? 'Add to' : 'Remove from'}} Watch List</button>
+    >{{ watchBtn ? '<strong>Watch List</strong>' : 'Watch List'}}</button>
     <button
-      class="btn btn-success"
+      class="btn btn-success" id="movie_card_btn2"
       @click="setToWatchedList(movie.id)"
-    >{{ watchedBtn ? 'Add to' : 'Remove from'}} Watched List</button>
+    >{{ watchedBtn ? 'Already Seen' : 'Already seen'}}</button>
     <button
-      class="btn btn-warning"
+      class="btn btn-warning" id="movie_card_btn3"
       @click="setToStarredList(movie.id)"
-    >{{ starredBtn ? 'Add to' : 'Remove from'}} Starred List</button>
+    >{{ starredBtn ? '<strong>Favorite</strong>' : 'Favorite'}}</button>
   </div>
 </template>
 

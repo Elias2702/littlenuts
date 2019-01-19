@@ -41,6 +41,56 @@ a:hover {
   margin-top: 30px;
 }
 
+#movie_card_catalogue {
+  background-color: rgba(255,255,255, 0.15);
+  padding: 0;
+  margin-bottom: 30px;
+  border-radius: 5px;
+}
+
+#movie_card_catalogue:hover {
+  /* background-color: rgba(255,255,255, 0.3); */
+}
+
+#movie_card_catalogue_container:hover {
+  border-width: 10px;
+  border-style: ridge;
+  border-color: rgba(255,255,255, 0);
+}
+
+#movie_card_btn1 {
+  background-color: rgba(52, 58, 64, 0.8);
+  border: none;
+  color: rgba(255,255,255, 1);
+}
+
+#movie_card_btn1:hover {
+  /* font-weight: bold; */
+}
+
+#movie_card_btn2 {
+  background-color: rgba(52, 58, 64, 0.2);
+  border: none;
+  color: rgba(255,255,255, 1);
+}
+
+#movie_card_btn2:hover {
+  /* font-weight: bold; */
+}
+
+#movie_card_btn3 {
+  background-color: rgba(52, 58, 64, 0.8);
+  border: none;
+  color: rgba(255,255,255, 1);
+}
+
+#movie_card_btn3:hover {
+  /* font-weight: bold; */
+}
+
+#movie_card_title {
+  text-decoration: none;
+}
 /*Search Bar*/
 .searchbar {
     margin-top: 5px;

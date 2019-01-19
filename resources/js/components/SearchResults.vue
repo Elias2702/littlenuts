@@ -5,6 +5,7 @@
 <script>
 import axios from "axios";
 export default {
+<<<<<<< HEAD
   name: "SearchResults",
   data() {
     return {
@@ -15,6 +16,7 @@ export default {
 
   methods: {}
 };
+
 </script>
 
 <style scoped>

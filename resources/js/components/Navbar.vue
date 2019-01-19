@@ -56,11 +56,7 @@
                 {{ $t('login') }}
               </router-link>
             </li>
-            <!-- <li class="nav-item">
-              <router-link :to="{ name: 'register' }" class="nav-link text-white" active-class="active">
-                {{ $t('register') }}
-              </router-link>
-            </li> -->
+
           </template>
         </ul>
       </div>
